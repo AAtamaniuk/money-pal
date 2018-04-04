@@ -1,0 +1,30 @@
+{
+    "extends": [
+        "airbnb"
+    ],
+    "env": {
+        "browser": true,
+        "jest": true
+    },
+    "rules": {
+        "react/no-did-mount-set-state": false
+    },
+    "overrides": [
+        {
+            "files": [
+                "src/**/*.test.js",
+                "src/index.js"
+            ],
+            "rules": {
+                "react/jsx-filename-extension": [
+                    1,
+                    {
+                        "extensions": [
+                            ".js"
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}
