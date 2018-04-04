@@ -38,10 +38,13 @@ class App extends Component {
 
   render() {
     const { money } = this.state;
+    const total = money
+      .map(i => i.value)
+      .reduce((sum, current) => sum + current, 0);
     return (
       <div>
         <Typography variant="headline">Money Pal</Typography>
-        <Total total={0} onAddIncome={this.handleAddIncome} onAddCost={this.handleAddCost} />
+        <Total total={total} onAddIncome={this.handleAddIncome} onAddCost={this.handleAddCost} />
         <MoneyList money={money} />
       </div>
     );
