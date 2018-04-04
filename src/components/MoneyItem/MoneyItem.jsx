@@ -13,15 +13,33 @@ import MoneyOff from 'material-ui-icons/MoneyOff';
 // Colors
 import red from 'material-ui/colors/red';
 import green from 'material-ui/colors/green';
+import amber from 'material-ui/colors/amber';
+import blue from 'material-ui/colors/blue';
+import pink from 'material-ui/colors/pink';
 
 const styles = {
-  income: {
+  incomeNumber: {
     fontWeight: 500,
-    color: red[800],
+    color: red[500],
   },
-  cost: {
+  costNumber: {
     fontWeight: 500,
-    color: green[800],
+    color: green[500],
+  },
+  income: {
+    backgroundColor: green[400],
+  },
+  entertainment: {
+    backgroundColor: amber[400],
+  },
+  food: {
+    backgroundColor: blue[400],
+  },
+  shopping: {
+    backgroundColor: pink[400],
+  },
+  others: {
+    backgroundColor: red[400],
   },
 };
 
@@ -44,7 +62,7 @@ function MoneyItem({
 }) {
   return (
     <ListItem>
-      <Avatar>
+      <Avatar className={classes[type]}>
         {{
           income: <ArrowDownwarf />,
           entertainment: <LocalActivity />,
@@ -55,8 +73,8 @@ function MoneyItem({
       </Avatar>
       <ListItemText primary={name} secondary={date} />
       {type === 'income'
-        ? <span className={classes.income}>+{value}</span>
-        : <span className={classes.cost}>{value}</span>
+        ? <span className={classes.incomeNumber}>+{value}</span>
+        : <span className={classes.costNumber}>{value}</span>
       }
     </ListItem>
   );
