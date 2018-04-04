@@ -1,18 +1,37 @@
 import React, { Component } from 'react';
-import logo from '../../logo.svg';
 import './App.css';
+// Material UI
+import Typography from 'material-ui/Typography';
+// Components
+import Total from '../Total/Total';
+
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      money: [
+
+      ],
+    };
+    this.handleAddIncome = this.handleAddIncome.bind(this);
+    this.handleAddCost = this.handleAddCost.bind(this);
+  }
+
+  handleAddIncome() {
+    console.log('Add income');
+  }
+
+  handleAddCost() {
+    console.log('Add costs');
+  }
+
   render() {
+    const { money } = this.state;
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+        <Typography variant="headline">Money Pal</Typography>
+        <Total total={0} onAddIncome={this.handleAddIncome} onAddCost={this.handleAddCost} />
       </div>
     );
   }
