@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
-import './App.css';
 // Material UI
 import Typography from 'material-ui/Typography';
+// Styles
+import './App.css';
+// Test data
+import moneyData from '../../testData/money';
 // Components
 import Total from '../Total/Total';
+import MoneyList from '../MoneyList/MoneyList';
 
 
 class App extends Component {
@@ -16,6 +20,12 @@ class App extends Component {
     };
     this.handleAddIncome = this.handleAddIncome.bind(this);
     this.handleAddCost = this.handleAddCost.bind(this);
+  }
+
+  componentDidMount() {
+    this.setState({
+      money: moneyData,
+    });
   }
 
   handleAddIncome() {
@@ -32,6 +42,7 @@ class App extends Component {
       <div>
         <Typography variant="headline">Money Pal</Typography>
         <Total total={0} onAddIncome={this.handleAddIncome} onAddCost={this.handleAddCost} />
+        <MoneyList money={money} />
       </div>
     );
   }

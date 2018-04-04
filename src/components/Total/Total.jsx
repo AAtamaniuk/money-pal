@@ -15,11 +15,11 @@ const propTypes = {
 function componentName({ total, onAddIncome, onAddCost }) {
   return (
     <div>
-      <IconButton onClick={onAddIncome} aria-label="Add income">
+      <IconButton onClick={() => onAddIncome()} aria-label="Add income">
         <AddCircleOutline />
       </IconButton>
       <span>{total}</span>
-      <IconButton onClick={onAddCost} aria-label="Add cost">
+      <IconButton onClick={() => onAddCost()} aria-label="Add cost">
         <RemoveCircleOutline />
       </IconButton>
     </div >
