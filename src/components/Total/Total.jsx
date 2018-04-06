@@ -20,7 +20,7 @@ const styles = {
 };
 
 const propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
   total: PropTypes.number.isRequired,
   onAddIncome: PropTypes.func.isRequired,
   onAddCost: PropTypes.func.isRequired,
