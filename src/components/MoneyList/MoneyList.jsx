@@ -6,7 +6,19 @@ import List from 'material-ui/List';
 import MoneyItem from '../MoneyItem/MoneyItem';
 
 const propTypes = {
-  money: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
+  money: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    type: PropTypes.oneOf([
+      'income',
+      'entertainment',
+      'food',
+      'shopping',
+      'others',
+    ]).isRequired,
+    name: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired,
+    value: PropTypes.number.isRequired,
+  }).isRequired).isRequired,
 };
 
 function componentName({ money }) {
