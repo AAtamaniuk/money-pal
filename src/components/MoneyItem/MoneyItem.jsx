@@ -16,6 +16,8 @@ import green from 'material-ui/colors/green';
 import amber from 'material-ui/colors/amber';
 import blue from 'material-ui/colors/blue';
 import pink from 'material-ui/colors/pink';
+// Config
+import types from '../../config/types';
 
 const styles = {
   incomeNumber: {
@@ -45,13 +47,7 @@ const styles = {
 
 const propTypes = {
   classes: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
-  type: PropTypes.oneOf([
-    'income',
-    'entertainment',
-    'food',
-    'shopping',
-    'others',
-  ]).isRequired,
+  type: PropTypes.oneOf(types).isRequired,
   name: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
   value: PropTypes.number.isRequired,

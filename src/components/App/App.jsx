@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import shortid from 'shortid';
 // Material UI
 import { withStyles } from 'material-ui/styles';
 import Typography from 'material-ui/Typography';
@@ -6,6 +8,9 @@ import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Paper from 'material-ui/Paper';
 import CssBaseline from 'material-ui/CssBaseline';
+import Button from 'material-ui/Button';
+// Icons
+import AddIcon from 'material-ui-icons/Add';
 // Styles
 import './App.css';
 // Test data
@@ -13,6 +18,7 @@ import moneyData from '../../testData/money';
 // Components
 import Total from '../Total/Total';
 import MoneyList from '../MoneyList/MoneyList';
+import FormDialog from '../FormDialog/FormDialog';
 
 const styles = () => ({
   root: {
@@ -25,7 +31,18 @@ const styles = () => ({
     width: '100%',
     maxWidth: 1024,
   },
+  button: {
+    position: 'absolute',
+    // bottom: theme.spacing.unit * 2,
+    // right: theme.spacing.unit * 2,
+    bottom: 32,
+    right: 32,
+  },
 });
+
+const propTypes = {
+  classes: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+};
 
 
 class App extends Component {
@@ -33,27 +50,41 @@ class App extends Component {
     super();
     this.state = {
       money: [],
+      isFormDialogOpen: false,
     };
-    this.handleAddIncome = this.handleAddIncome.bind(this);
-    this.handleAddCost = this.handleAddCost.bind(this);
+    this.handleAddItem = this.handleAddItem.bind(this);
+    this.handleFormDialogOpen = this.handleFormDialogOpen.bind(this);
+    this.handleFormDialogClose = this.handleFormDialogClose.bind(this);
   }
 
   componentDidMount() {
+    this.setState({ money: moneyData });
+  }
+
+  handleAddItem(name, type, value) {
+    const newItem = {
+      id: shortid.generate(),
+      type,
+      name,
+      date: Date.now(),
+      value: type === 'income' ? Number(value) : -Number(value),
+    };
     this.setState({
-      money: moneyData,
+      money: [...this.state.money, newItem],
     });
+    this.handleFormDialogClose();
   }
 
-  handleAddIncome() {
-    console.log('Add income');
+  handleFormDialogOpen() {
+    this.setState({ isFormDialogOpen: true });
   }
 
-  handleAddCost() {
-    console.log('Add costs');
+  handleFormDialogClose() {
+    this.setState({ isFormDialogOpen: false });
   }
 
   render() {
-    const { money } = this.state;
+    const { money, isFormDialogOpen } = this.state;
     const { classes } = this.props;
     const total = money
       .map(i => i.value)
@@ -70,18 +101,29 @@ class App extends Component {
             </Toolbar>
           </AppBar>
           <Paper className={classes.container}>
-            <Total
-              total={total}
-              onAddIncome={this.handleAddIncome}
-              onAddCost={this.handleAddCost}
-            />
+            <Total total={total} />
             <MoneyList money={money} />
           </Paper>
+          <Button
+            variant="fab"
+            color="secondary"
+            aria-label="add"
+            className={classes.button}
+            onClick={this.handleFormDialogOpen}
+          >
+            <AddIcon />
+          </Button>
+          <FormDialog
+            isOpen={isFormDialogOpen}
+            onDialogClose={this.handleFormDialogClose}
+            onAddItem={this.handleAddItem}
+          />
         </div>
       </React.Fragment>
-
     );
   }
 }
+
+App.propTypes = propTypes;
 
 export default withStyles(styles)(App);
