@@ -20,11 +20,11 @@ import pink from 'material-ui/colors/pink';
 const styles = {
   incomeNumber: {
     fontWeight: 500,
-    color: red[400],
+    color: green[400],
   },
   costNumber: {
     fontWeight: 500,
-    color: green[400],
+    color: red[400],
   },
   income: {
     backgroundColor: green[400],
