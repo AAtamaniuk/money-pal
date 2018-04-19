@@ -2,12 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import * as R from 'ramda';
 // Material UI
-import { withStyles } from 'material-ui/styles';
-import IconButton from 'material-ui/IconButton';
 import List from 'material-ui/List';
-// Icons
-import Sort from 'material-ui-icons/Sort';
-import FilterList from 'material-ui-icons/FilterList';
 // Components
 import MoneyItem from '../MoneyItem/MoneyItem';
 import MoneyControls from '../MoneyControls/MoneyControls';
