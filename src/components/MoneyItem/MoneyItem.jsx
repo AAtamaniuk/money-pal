@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 // Material UI
 import { withStyles } from 'material-ui/styles';
 import { ListItem, ListItemText } from 'material-ui/List';
@@ -49,13 +50,14 @@ const propTypes = {
   classes: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
   type: PropTypes.oneOf(types).isRequired,
   name: PropTypes.string.isRequired,
-  date: PropTypes.string.isRequired,
+  date: PropTypes.number.isRequired,
   value: PropTypes.number.isRequired,
 };
 
 function MoneyItem({
   classes, type, name, date, value,
 }) {
+  const formattedDate = moment(date).utc().startOf('second').fromNow();
   return (
     <ListItem>
       <Avatar className={classes[type]}>
@@ -67,7 +69,7 @@ function MoneyItem({
           others: <MoneyOff />,
         }[type]}
       </Avatar>
-      <ListItemText primary={name} secondary={date} />
+      <ListItemText primary={name} secondary={formattedDate} />
       {type === 'income'
         ? <span className={classes.incomeNumber}>+{value}</span>
         : <span className={classes.costNumber}>{value}</span>
