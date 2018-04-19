@@ -101,8 +101,8 @@ class App extends Component {
             </Toolbar>
           </AppBar>
           <Paper className={classes.container}>
-            <Total total={total} />
             <MoneyList money={money} />
+            <Total total={total} />
           </Paper>
           <Button
             variant="fab"
