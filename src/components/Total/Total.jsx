@@ -6,8 +6,8 @@ import Typography from 'material-ui/Typography';
 
 const styles = {
   root: {
-    display: 'flex',
     textAlign: 'right',
+    padding: '16px 24px',
   },
   total: {
     display: 'inline-block',
@@ -24,8 +24,8 @@ function Total({
 }) {
   return (
     <div className={classes.root}>
-      <Typography variant="title" className={classes.total}>
-        {total}
+      <Typography variant="headline" className={classes.total}>
+        Total: {total}
       </Typography>
     </div >
   );
