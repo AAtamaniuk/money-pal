@@ -16,7 +16,7 @@ const propTypes = {
       'others',
     ]).isRequired,
     name: PropTypes.string.isRequired,
-    date: PropTypes.string.isRequired,
+    date: PropTypes.number.isRequired,
     value: PropTypes.number.isRequired,
   }).isRequired).isRequired,
 };
@@ -26,13 +26,13 @@ function componentName({ money }) {
     <List>
       {
         money.map(i =>
-          (<MoneyItem
-            key={i.id}
-            type={i.type}
-            name={i.name}
-            date={i.date}
-            value={i.value}
-          />))
+           (<MoneyItem
+             key={i.id}
+             type={i.type}
+             name={i.name}
+             date={i.date}
+             value={i.value}
+           />))
       }
     </List>
   );
