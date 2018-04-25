@@ -1,22 +1,105 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Bar, Doughnut } from 'react-chartjs-2';
 // Material UI
 import { withStyles } from 'material-ui/styles';
+import Typography from 'material-ui/Typography';
+// Colors
+import red from 'material-ui/colors/red';
+import green from 'material-ui/colors/green';
+import amber from 'material-ui/colors/amber';
+import blue from 'material-ui/colors/blue';
+import pink from 'material-ui/colors/pink';
+// Configs
+import types from '../../config/types';
+// Helpers
+import { getDataSetByTypes, getDataSetByCategory } from '../../helpers/helpers';
 
-const styles = {
+
+const styles = theme => ({
   root: {
-    textAligh: 'center',
+    display: 'flex',
+    padding: theme.spacing.unit * 2,
   },
-};
+  column: {
+    width: '50%',
+  },
+});
 
 const propTypes = {
   classes: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+  money: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    type: PropTypes.oneOf(types).isRequired,
+    name: PropTypes.string.isRequired,
+    date: PropTypes.number.isRequired,
+    value: PropTypes.number.isRequired,
+  }).isRequired).isRequired,
 };
 
-function ChartTab({ classes }) {
+
+function ChartTab({ classes, money }) {
+  const pieData = {
+    labels: ['entertainment', 'food', 'shopping', 'others'],
+    datasets: [{
+      data: getDataSetByTypes(money),
+      backgroundColor: [amber[400], blue[400], pink[400], red[400]],
+    }],
+  };
+  const barData = {
+    labels: ['income', 'costs'],
+    datasets: [{
+      data: getDataSetByCategory(money),
+      backgroundColor: [green[400], red[400]],
+      borderWidth: 2,
+      borderColor: 'grey',
+    }],
+  };
   return (
     <div className={classes.root}>
-      <h2>This is chart tab</h2>
+      <div className={classes.column}>
+        <Typography variant="subheading" gutterBottom>
+          Income/Costs
+        </Typography>
+        <Bar
+          data={barData}
+          width={100}
+          height={100}
+          options={{
+            responsive: true,
+            maintainAspectRatio: false,
+            legend: {
+              display: false,
+              position: 'left',
+            },
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true,
+                },
+              }],
+            },
+          }}
+        />
+      </div>
+      <div className={classes.column}>
+        <Typography variant="subheading" gutterBottom>
+          Costs by type
+        </Typography>
+        <Doughnut
+          data={pieData}
+          width={100}
+          height={100}
+          options={{
+            responsive: true,
+            maintainAspectRatio: false,
+            legend: {
+              display: true,
+              position: 'left',
+            },
+          }}
+        />
+      </div>
     </div>
   );
 }

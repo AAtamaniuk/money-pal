@@ -18,6 +18,8 @@ import PieChartIcon from 'material-ui-icons/PieChart';
 import './App.css';
 // Test data
 import moneyData from '../../testData/money';
+// Helpers
+import { getTotalSum } from '../../helpers/helpers';
 // Components
 import ListTab from '../ListTab/ListTab';
 import ChartTab from '../ChartTab/ChartTab';
@@ -102,9 +104,7 @@ class App extends Component {
   render() {
     const { money, activeTab, isFormDialogOpen } = this.state;
     const { classes } = this.props;
-    const total = money
-      .map(i => i.value)
-      .reduce((sum, current) => sum + current, 0);
+    const total = getTotalSum(money);
     return (
       <React.Fragment>
         <CssBaseline />
@@ -131,7 +131,7 @@ class App extends Component {
               </Tabs>
             </AppBar>
             {activeTab === 0 && <ListTab money={money} total={total} />}
-            {activeTab === 1 && <ChartTab />}
+            {activeTab === 1 && <ChartTab money={money} />}
           </Paper>
           <Button
             variant="fab"
