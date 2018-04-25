@@ -9,8 +9,11 @@ import Toolbar from 'material-ui/Toolbar';
 import Paper from 'material-ui/Paper';
 import CssBaseline from 'material-ui/CssBaseline';
 import Button from 'material-ui/Button';
+import Tabs, { Tab } from 'material-ui/Tabs';
 // Icons
 import AddIcon from 'material-ui-icons/Add';
+import ListIcon from 'material-ui-icons/List';
+import PieChartIcon from 'material-ui-icons/PieChart';
 // Styles
 import './App.css';
 // Test data
@@ -20,23 +23,24 @@ import Total from '../Total/Total';
 import MoneyList from '../MoneyList/MoneyList';
 import FormDialog from '../FormDialog/FormDialog';
 
-const styles = () => ({
-  root: {
-
+const styles = theme => ({
+  header: {
+    boxShadow: 0,
+  },
+  tabs: {
+    flexGrow: 1,
   },
   container: {
-    marginTop: 32,
     marginLeft: 'auto',
     marginRight: 'auto',
     width: '100%',
+    height: 'calc(100vh - 56px)',
     maxWidth: 1024,
   },
   button: {
     position: 'absolute',
-    // bottom: theme.spacing.unit * 2,
-    // right: theme.spacing.unit * 2,
-    bottom: 32,
-    right: 32,
+    bottom: theme.spacing.unit * 2,
+    right: theme.spacing.unit * 2,
   },
 });
 
@@ -93,14 +97,26 @@ class App extends Component {
       <React.Fragment>
         <CssBaseline />
         <div className={classes.root}>
-          <AppBar position="static">
+          <AppBar position="static" className={classes.header}>
             <Toolbar>
-              <Typography variant="title" color="inherit">
+              <Typography variant="title">
                 Money Pal
               </Typography>
             </Toolbar>
           </AppBar>
           <Paper className={classes.container}>
+            <AppBar position="static" color="primary">
+              <Tabs
+                value={0}
+                // onChange={this.handleChange}
+                centered
+                fullWidth
+                className={classes.tabs}
+              >
+                <Tab icon={<ListIcon />} />
+                <Tab icon={<PieChartIcon />} />
+              </Tabs>
+            </AppBar>
             <MoneyList money={money} />
             <Total total={total} />
           </Paper>

@@ -5,7 +5,6 @@ import * as R from 'ramda';
 import List from 'material-ui/List';
 // Components
 import MoneyItem from '../MoneyItem/MoneyItem';
-import MoneyControls from '../MoneyControls/MoneyControls';
 
 const propTypes = {
   money: PropTypes.arrayOf(PropTypes.shape({
@@ -28,7 +27,7 @@ function MoneyList({ money }) {
   const sortesMoney = sortByProp(money);
   return (
     <div>
-      <MoneyControls />
+      {/* <MoneyControls /> */}
       <List>
         {
           sortesMoney.map(i =>
