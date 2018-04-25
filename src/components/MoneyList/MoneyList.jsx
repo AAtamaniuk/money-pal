@@ -12,7 +12,8 @@ import MoneyItem from '../MoneyItem/MoneyItem';
 const styles = () => ({
   root: {
     maxHeight: '100%',
-    overflow: 'scroll',
+    overflowY: 'scroll',
+    flexGrow: 1,
   },
 });
 

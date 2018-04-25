@@ -48,6 +48,62 @@ const moneyData = [
     date: 1524153007650,
     value: -400,
   },
+  {
+    id: '8',
+    type: 'food',
+    name: 'Buy hotdog',
+    date: 1524153003650,
+    value: -400,
+  },
+  {
+    id: '9',
+    type: 'shopping',
+    name: 'Buy table',
+    date: 1524623107650,
+    value: -1500,
+  },
+  {
+    id: '10',
+    type: 'others',
+    name: 'Buy gifts',
+    date: 1524153007650,
+    value: -400,
+  },
+  {
+    id: '11',
+    type: 'others',
+    name: 'Buy gifts',
+    date: 1524153007650,
+    value: -400,
+  },
+  {
+    id: '12',
+    type: 'income',
+    name: 'Birthday gifts',
+    date: 1524193007650,
+    value: 1500,
+  },
+  {
+    id: '13',
+    type: 'others',
+    name: 'Buy gifts',
+    date: 1524153007650,
+    value: -400,
+  },
+  {
+    id: '14',
+    type: 'others',
+    name: 'Buy gifts',
+    date: 1524153007650,
+    value: -400,
+  },
+  {
+    id: '15',
+    type: 'others',
+    name: 'Buy gifts',
+    date: 1524153007650,
+    value: -400,
+  },
 ];
 
 export default moneyData;

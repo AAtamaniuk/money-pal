@@ -25,7 +25,7 @@ import FormDialog from '../FormDialog/FormDialog';
 
 const styles = theme => ({
   header: {
-    boxShadow: 'none',
+    // boxShadow: 'none',
     color: 'white',
   },
   tabs: {
@@ -33,13 +33,14 @@ const styles = theme => ({
     color: 'white',
   },
   container: {
+    marginTop: theme.spacing.unit * 3,
+    marginBottom: theme.spacing.unit * 3,
     marginLeft: 'auto',
     marginRight: 'auto',
     width: '100%',
-    height: 'calc(100vh - 56px)',
+    height: 'calc(100vh - 112px)',
     maxWidth: 1024,
-    boxShadow: 'none',
-    overflow: 'scroll',
+    // boxShadow: 'none',
   },
   button: {
     position: 'absolute',

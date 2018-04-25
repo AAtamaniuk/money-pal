@@ -10,15 +10,12 @@ import Total from '../Total/Total';
 
 const styles = theme => ({
   root: {
-
+    display: 'flex',
+    flexDirection: 'column',
+    height: `calc(100% - ${theme.spacing.unit * 6}px)`, // totalContainer height
   },
-  moneyList: {
-    marginBottom: theme.spacing.unit * 6,
-  },
-  total: {
-    position: 'fixed',
-    bottom: 0,
-    width: '100%',
+  totalContainer: {
+    height: theme.spacing.unit * 6,
   },
 });
 
@@ -37,10 +34,8 @@ const propTypes = {
 function ListTab({ classes, money, total }) {
   return (
     <div className={classes.root}>
-      <div className={classes.moneyList}>
-        <MoneyList money={money} />
-      </div>
-      <div className={classes.total}>
+      <MoneyList money={money} />
+      <div className={classes.totalContainer}>
         <Total total={total} />
       </div>
     </div>
