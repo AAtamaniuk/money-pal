@@ -7,11 +7,17 @@ import Divider from 'material-ui/Divider';
 
 const styles = {
   root: {
-    textAlign: 'center',
-    padding: '16px 24px',
+    backgroundColor: '#8ac34a',
+    height: 56,
+    display: 'flex',
+    justifyContent: 'center',
+    color: 'white',
+    verticalAlign: 'middle',
+    alignItems: 'center',
   },
   total: {
     display: 'inline-block',
+    color: 'inherit',
   },
 };
 

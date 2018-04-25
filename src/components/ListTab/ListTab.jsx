@@ -8,19 +8,18 @@ import types from '../../config/types';
 import MoneyList from '../MoneyList/MoneyList';
 import Total from '../Total/Total';
 
-const styles = () => ({
-  // root: {
-  //   display: 'flex',
-  //   flexDirection: 'column',
-  // },
-  // moneyList: {
-  //   flexGrow: 1,
-  //   overflow: 'scroll',
-  //   maxHeight: 'calc(100% - 32px)',
-  // },
-  // total: {
-  //   flexBasis: 32,
-  // },
+const styles = theme => ({
+  root: {
+
+  },
+  moneyList: {
+    marginBottom: theme.spacing.unit * 6,
+  },
+  total: {
+    position: 'fixed',
+    bottom: 0,
+    width: '100%',
+  },
 });
 
 const propTypes = {
