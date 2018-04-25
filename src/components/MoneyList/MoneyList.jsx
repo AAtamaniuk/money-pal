@@ -3,19 +3,15 @@ import PropTypes from 'prop-types';
 import * as R from 'ramda';
 // Material UI
 import List from 'material-ui/List';
+// Configs
+import types from '../../config/types';
 // Components
 import MoneyItem from '../MoneyItem/MoneyItem';
 
 const propTypes = {
   money: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string.isRequired,
-    type: PropTypes.oneOf([
-      'income',
-      'entertainment',
-      'food',
-      'shopping',
-      'others',
-    ]).isRequired,
+    type: PropTypes.oneOf(types).isRequired,
     name: PropTypes.string.isRequired,
     date: PropTypes.number.isRequired,
     value: PropTypes.number.isRequired,

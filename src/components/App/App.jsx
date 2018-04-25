@@ -19,8 +19,8 @@ import './App.css';
 // Test data
 import moneyData from '../../testData/money';
 // Components
-import Total from '../Total/Total';
-import MoneyList from '../MoneyList/MoneyList';
+import ListTab from '../ListTab/ListTab';
+import ChartTab from '../ChartTab/ChartTab';
 import FormDialog from '../FormDialog/FormDialog';
 
 const styles = theme => ({
@@ -55,10 +55,12 @@ class App extends Component {
     this.state = {
       money: [],
       isFormDialogOpen: false,
+      activeTab: 0,
     };
     this.handleAddItem = this.handleAddItem.bind(this);
     this.handleFormDialogOpen = this.handleFormDialogOpen.bind(this);
     this.handleFormDialogClose = this.handleFormDialogClose.bind(this);
+    this.handleChangeTab = this.handleChangeTab.bind(this);
   }
 
   componentDidMount() {
@@ -87,8 +89,12 @@ class App extends Component {
     this.setState({ isFormDialogOpen: false });
   }
 
+  handleChangeTab(event, value) {
+    this.setState({ activeTab: value });
+  }
+
   render() {
-    const { money, isFormDialogOpen } = this.state;
+    const { money, activeTab, isFormDialogOpen } = this.state;
     const { classes } = this.props;
     const total = money
       .map(i => i.value)
@@ -107,8 +113,8 @@ class App extends Component {
           <Paper className={classes.container}>
             <AppBar position="static" color="primary">
               <Tabs
-                value={0}
-                // onChange={this.handleChange}
+                value={activeTab}
+                onChange={this.handleChangeTab}
                 centered
                 fullWidth
                 className={classes.tabs}
@@ -117,8 +123,8 @@ class App extends Component {
                 <Tab icon={<PieChartIcon />} />
               </Tabs>
             </AppBar>
-            <MoneyList money={money} />
-            <Total total={total} />
+            {activeTab === 0 && <ListTab money={money} total={total} />}
+            {activeTab === 1 && <ChartTab />}
           </Paper>
           <Button
             variant="fab"
