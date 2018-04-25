@@ -3,12 +3,21 @@ import PropTypes from 'prop-types';
 import * as R from 'ramda';
 // Material UI
 import List from 'material-ui/List';
+import { withStyles } from 'material-ui/styles';
 // Configs
 import types from '../../config/types';
 // Components
 import MoneyItem from '../MoneyItem/MoneyItem';
 
+const styles = () => ({
+  root: {
+    maxHeight: '100%',
+    overflow: 'scroll',
+  },
+});
+
 const propTypes = {
+  classes: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
   money: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string.isRequired,
     type: PropTypes.oneOf(types).isRequired,
@@ -18,11 +27,11 @@ const propTypes = {
   }).isRequired).isRequired,
 };
 
-function MoneyList({ money }) {
+function MoneyList({ classes, money }) {
   const sortByProp = R.sortBy(R.prop('date'));
   const sortesMoney = sortByProp(money);
   return (
-    <div>
+    <div className={classes.root}>
       {/* <MoneyControls /> */}
       <List>
         {
@@ -42,4 +51,4 @@ function MoneyList({ money }) {
 
 MoneyList.propTypes = propTypes;
 
-export default MoneyList;
+export default withStyles(styles)(MoneyList);

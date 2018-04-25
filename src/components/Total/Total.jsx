@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 // Material UI
 import { withStyles } from 'material-ui/styles';
 import Typography from 'material-ui/Typography';
+import Divider from 'material-ui/Divider';
 
 const styles = {
   root: {
-    textAlign: 'right',
+    textAlign: 'center',
     padding: '16px 24px',
   },
   total: {
@@ -23,11 +24,14 @@ function Total({
   classes, total,
 }) {
   return (
-    <div className={classes.root}>
-      <Typography variant="headline" className={classes.total}>
-        Total: {total}
-      </Typography>
-    </div >
+    <Fragment>
+      <Divider />
+      <div className={classes.root}>
+        <Typography variant="headline" className={classes.total}>
+          Total: {total}
+        </Typography>
+      </div >
+    </Fragment>
   );
 }
 

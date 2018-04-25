@@ -25,10 +25,12 @@ import FormDialog from '../FormDialog/FormDialog';
 
 const styles = theme => ({
   header: {
-    boxShadow: 0,
+    boxShadow: 'none',
+    color: 'white',
   },
   tabs: {
     flexGrow: 1,
+    color: 'white',
   },
   container: {
     marginLeft: 'auto',
@@ -36,6 +38,8 @@ const styles = theme => ({
     width: '100%',
     height: 'calc(100vh - 56px)',
     maxWidth: 1024,
+    boxShadow: 'none',
+    overflow: 'scroll',
   },
   button: {
     position: 'absolute',
@@ -103,10 +107,11 @@ class App extends Component {
       <React.Fragment>
         <CssBaseline />
         <div className={classes.root}>
-          <AppBar position="static" className={classes.header}>
+          <AppBar position="static" className={classes.header} >
             <Toolbar>
-              <Typography variant="title">
-                Money Pal
+              <Typography variant="title" color="inherit">
+                {activeTab === 0 && 'List'}
+                {activeTab === 1 && 'Chart'}
               </Typography>
             </Toolbar>
           </AppBar>

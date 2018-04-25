@@ -34,6 +34,20 @@ const moneyData = [
     date: 1524153007650,
     value: -100,
   },
+  {
+    id: '6',
+    type: 'entertainment',
+    name: 'Buy tickets',
+    date: 1524153007650,
+    value: -200,
+  },
+  {
+    id: '7',
+    type: 'others',
+    name: 'Buy gifts',
+    date: 1524153007650,
+    value: -400,
+  },
 ];
 
 export default moneyData;
