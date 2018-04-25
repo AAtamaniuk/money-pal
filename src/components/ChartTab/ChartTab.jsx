@@ -4,6 +4,7 @@ import { Bar, Doughnut } from 'react-chartjs-2';
 // Material UI
 import { withStyles } from 'material-ui/styles';
 import Typography from 'material-ui/Typography';
+import Grid from 'material-ui/Grid';
 // Colors
 import red from 'material-ui/colors/red';
 import green from 'material-ui/colors/green';
@@ -44,6 +45,8 @@ function ChartTab({ classes, money }) {
     datasets: [{
       data: getDataSetByTypes(money),
       backgroundColor: [amber[400], blue[400], pink[400], red[400]],
+      borderWidth: 2,
+      borderColor: 'grey',
     }],
   };
   const barData = {
@@ -57,15 +60,16 @@ function ChartTab({ classes, money }) {
   };
   return (
     <div className={classes.root}>
-      <div className={classes.column}>
-        <Typography variant="subheading" gutterBottom>
+      <Grid container spacing={8}>
+        <Grid item xs={12} md={6}>
+          <Typography variant="subheading" gutterBottom>
           Income/Costs
-        </Typography>
-        <Bar
-          data={barData}
-          width={100}
-          height={100}
-          options={{
+          </Typography>
+          <Bar
+            data={barData}
+            width={100}
+            height={100}
+            options={{
             responsive: true,
             maintainAspectRatio: false,
             legend: {
@@ -80,17 +84,17 @@ function ChartTab({ classes, money }) {
               }],
             },
           }}
-        />
-      </div>
-      <div className={classes.column}>
-        <Typography variant="subheading" gutterBottom>
+          />
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <Typography variant="subheading" gutterBottom>
           Costs by type
-        </Typography>
-        <Doughnut
-          data={pieData}
-          width={100}
-          height={100}
-          options={{
+          </Typography>
+          <Doughnut
+            data={pieData}
+            width={100}
+            height={100}
+            options={{
             responsive: true,
             maintainAspectRatio: false,
             legend: {
@@ -98,8 +102,9 @@ function ChartTab({ classes, money }) {
               position: 'left',
             },
           }}
-        />
-      </div>
+          />
+        </Grid>
+      </Grid>
     </div>
   );
 }
