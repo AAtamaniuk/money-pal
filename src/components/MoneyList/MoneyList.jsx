@@ -5,7 +5,7 @@ import * as R from 'ramda';
 import List from 'material-ui/List';
 import { withStyles } from 'material-ui/styles';
 // Configs
-import types from '../../config/types';
+import categories from '../../config/categories';
 // Components
 import MoneyItem from '../MoneyItem/MoneyItem';
 
@@ -21,7 +21,7 @@ const propTypes = {
   classes: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
   money: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string.isRequired,
-    type: PropTypes.oneOf(types).isRequired,
+    category: PropTypes.oneOf(categories).isRequired,
     name: PropTypes.string.isRequired,
     date: PropTypes.number.isRequired,
     value: PropTypes.number.isRequired,
@@ -39,7 +39,7 @@ function MoneyList({ classes, money }) {
           sortesMoney.map(i =>
             (<MoneyItem
               key={i.id}
-              type={i.type}
+              category={i.category}
               name={i.name}
               date={i.date}
               value={i.value}

@@ -11,7 +11,7 @@ import TextField from 'material-ui/TextField';
 import Button from 'material-ui/Button';
 import { MenuItem } from 'material-ui/Menu';
 // Config
-import types from '../../config/types';
+import categories from '../../config/categories';
 
 const styles = {
   dialog: {
@@ -35,7 +35,7 @@ class FormDialog extends Component {
     super();
     this.state = {
       name: '',
-      type: '',
+      category: '',
       value: '',
     };
     this.handleChange = this.handleChange.bind(this);
@@ -48,21 +48,21 @@ class FormDialog extends Component {
   }
 
   handleAddItem() {
-    const { name, type, value } = this.state;
-    this.props.onAddItem(name, type, value);
+    const { name, category, value } = this.state;
+    this.props.onAddItem(name, category, value);
     this.clear();
   }
 
   clear() {
     this.setState({
       name: '',
-      type: '',
+      category: '',
       value: '',
     });
   }
 
   render() {
-    const { name, type, value } = this.state;
+    const { name, category, value } = this.state;
     const {
       classes, isOpen, onDialogClose,
     } = this.props;
@@ -75,20 +75,20 @@ class FormDialog extends Component {
           paper: classes.dialog,
         }}
       >
-        <DialogTitle id="form-dialog-title">Add</DialogTitle>
+        <DialogTitle id="form-dialog-title">Add new item</DialogTitle>
         <DialogContent>
           <TextField
             className={classes.field}
             autoFocus
             id="select-currency"
             select
-            label="Type"
-            value={type}
-            name="type"
+            label="Category"
+            value={category}
+            name="category"
             onChange={this.handleChange}
             fullWidth
           >
-            {types.map(i => (
+            {categories.map(i => (
               <MenuItem key={i} value={i}>
                 {i}
               </MenuItem>

@@ -1,4 +1,4 @@
-const types = [
+const categories = [
   'income',
   'entertainment',
   'food',
@@ -6,5 +6,5 @@ const types = [
   'others',
 ];
 
-export default types;
+export default categories;
 

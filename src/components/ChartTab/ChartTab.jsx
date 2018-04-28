@@ -12,7 +12,7 @@ import amber from 'material-ui/colors/amber';
 import blue from 'material-ui/colors/blue';
 import pink from 'material-ui/colors/pink';
 // Configs
-import types from '../../config/types';
+import categories from '../../config/categories';
 // Helpers
 import { getDataSetByTypes, getDataSetByCategory } from '../../helpers/helpers';
 
@@ -31,7 +31,7 @@ const propTypes = {
   classes: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
   money: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string.isRequired,
-    type: PropTypes.oneOf(types).isRequired,
+    type: PropTypes.oneOf(categories).isRequired,
     name: PropTypes.string.isRequired,
     date: PropTypes.number.isRequired,
     value: PropTypes.number.isRequired,

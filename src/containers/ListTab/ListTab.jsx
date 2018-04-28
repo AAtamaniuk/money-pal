@@ -7,7 +7,7 @@ import { withStyles } from 'material-ui/styles';
 // Selectors
 import { getTotal } from '../../reducers/money';
 // Configs
-import types from '../../config/types';
+import categories from '../../config/categories';
 // Components
 import MoneyList from '../../components/MoneyList/MoneyList';
 import Total from '../../components/Total/Total';
@@ -28,7 +28,7 @@ const propTypes = {
   classes: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
   money: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string.isRequired,
-    type: PropTypes.oneOf(types).isRequired,
+    category: PropTypes.oneOf(categories).isRequired,
     name: PropTypes.string.isRequired,
     date: PropTypes.number.isRequired,
     value: PropTypes.number.isRequired,

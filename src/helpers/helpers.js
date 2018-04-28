@@ -6,8 +6,8 @@ export function getTotalSum(array) {
 }
 
 
-export function getSumByType(array, type) {
-  const filteredArr = array.filter(i => i.type === type);
+export function getSumByType(array, category) {
+  const filteredArr = array.filter(i => i.category === category);
   return getTotalSum(filteredArr);
 }
 
@@ -23,8 +23,8 @@ export function getDataSetByTypes(array) {
 
 export function getDataSetByCategory(array) {
   const categorySum = [];
-  const incomeSum = getTotalSum(array.filter(i => i.type === 'income'));
-  const costsSum = getTotalSum(array.filter(i => i.type !== 'income'));
+  const incomeSum = getTotalSum(array.filter(i => i.category === 'income'));
+  const costsSum = getTotalSum(array.filter(i => i.category !== 'income'));
   categorySum.push(incomeSum);
   categorySum.push(Math.abs(costsSum));
   return categorySum;

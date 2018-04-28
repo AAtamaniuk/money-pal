@@ -18,7 +18,7 @@ import amber from 'material-ui/colors/amber';
 import blue from 'material-ui/colors/blue';
 import pink from 'material-ui/colors/pink';
 // Config
-import types from '../../config/types';
+import categories from '../../config/categories';
 
 const styles = {
   incomeNumber: {
@@ -48,29 +48,29 @@ const styles = {
 
 const propTypes = {
   classes: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
-  type: PropTypes.oneOf(types).isRequired,
+  category: PropTypes.oneOf(categories).isRequired,
   name: PropTypes.string.isRequired,
   date: PropTypes.number.isRequired,
   value: PropTypes.number.isRequired,
 };
 
 function MoneyItem({
-  classes, type, name, date, value,
+  classes, category, name, date, value,
 }) {
   const formattedDate = moment(date).utc().startOf('second').fromNow();
   return (
     <ListItem>
-      <Avatar className={classes[type]}>
+      <Avatar className={classes[category]}>
         {{
           income: <ArrowDownwarf />,
           entertainment: <LocalActivity />,
           food: <LocalDining />,
           shopping: <LocalMall />,
           others: <MoneyOff />,
-        }[type]}
+        }[category]}
       </Avatar>
       <ListItemText primary={name} secondary={formattedDate} />
-      {type === 'income'
+      {category === 'income'
         ? <span className={classes.incomeNumber}>+{value}</span>
         : <span className={classes.costNumber}>{value}</span>
       }
