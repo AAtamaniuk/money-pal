@@ -12,8 +12,6 @@ import Tabs, { Tab } from 'material-ui/Tabs';
 // Icons
 import ListIcon from 'material-ui-icons/List';
 import PieChartIcon from 'material-ui-icons/PieChart';
-// Styles
-import './App.css';
 // Test data
 import moneyData from '../../testData/money';
 // Containers
