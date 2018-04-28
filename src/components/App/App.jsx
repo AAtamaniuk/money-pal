@@ -8,10 +8,8 @@ import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Paper from 'material-ui/Paper';
 import CssBaseline from 'material-ui/CssBaseline';
-import Button from 'material-ui/Button';
 import Tabs, { Tab } from 'material-ui/Tabs';
 // Icons
-import AddIcon from 'material-ui-icons/Add';
 import ListIcon from 'material-ui-icons/List';
 import PieChartIcon from 'material-ui-icons/PieChart';
 // Styles
@@ -22,7 +20,7 @@ import moneyData from '../../testData/money';
 import ListTab from '../../containers/ListTab/ListTab';
 // Components
 import ChartTab from '../ChartTab/ChartTab';
-import FormDialog from '../FormDialog/FormDialog';
+
 
 const styles = theme => ({
   header: {
@@ -43,12 +41,6 @@ const styles = theme => ({
     maxWidth: 1024,
     // boxShadow: 'none',
   },
-  button: {
-    position: 'absolute',
-    bottom: theme.spacing.unit * 3,
-    right: theme.spacing.unit * 2,
-    color: 'white',
-  },
 });
 
 const propTypes = {
@@ -61,12 +53,9 @@ class App extends Component {
     super();
     this.state = {
       money: [],
-      isFormDialogOpen: false,
       activeTab: 0,
     };
     this.handleAddItem = this.handleAddItem.bind(this);
-    this.handleFormDialogOpen = this.handleFormDialogOpen.bind(this);
-    this.handleFormDialogClose = this.handleFormDialogClose.bind(this);
     this.handleChangeTab = this.handleChangeTab.bind(this);
   }
 
@@ -88,20 +77,13 @@ class App extends Component {
     this.handleFormDialogClose();
   }
 
-  handleFormDialogOpen() {
-    this.setState({ isFormDialogOpen: true });
-  }
-
-  handleFormDialogClose() {
-    this.setState({ isFormDialogOpen: false });
-  }
 
   handleChangeTab(event, value) {
     this.setState({ activeTab: value });
   }
 
   render() {
-    const { money, activeTab, isFormDialogOpen } = this.state;
+    const { money, activeTab } = this.state;
     const { classes } = this.props;
     return (
       <Fragment>
@@ -131,20 +113,6 @@ class App extends Component {
             {activeTab === 0 && <ListTab />}
             {activeTab === 1 && <ChartTab money={money} />}
           </Paper>
-          <Button
-            variant="fab"
-            color="secondary"
-            aria-label="add"
-            className={classes.button}
-            onClick={this.handleFormDialogOpen}
-          >
-            <AddIcon />
-          </Button>
-          <FormDialog
-            isOpen={isFormDialogOpen}
-            onDialogClose={this.handleFormDialogClose}
-            onAddItem={this.handleAddItem}
-          />
         </div>
       </Fragment>
     );
