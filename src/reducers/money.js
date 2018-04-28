@@ -11,4 +11,7 @@ const money = (state = initialState, action) => {
   }
 };
 
+export const getTotal = state => state.map(i => i.value).reduce((sum, current) => sum + current, 0);
+
+
 export default money;

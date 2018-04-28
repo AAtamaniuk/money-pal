@@ -104,6 +104,13 @@ const moneyData = [
     date: 1524153007650,
     value: -400,
   },
+  {
+    id: '16',
+    type: 'shopping',
+    name: 'Buy bag',
+    date: 1524153007650,
+    value: -360,
+  },
 ];
 
 export default moneyData;

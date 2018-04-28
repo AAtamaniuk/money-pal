@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import shortid from 'shortid';
 // Material UI
@@ -18,8 +18,6 @@ import PieChartIcon from 'material-ui-icons/PieChart';
 import './App.css';
 // Test data
 import moneyData from '../../testData/money';
-// Helpers
-import { getTotalSum } from '../../helpers/helpers';
 // Containers
 import ListTab from '../../containers/ListTab/ListTab';
 // Components
@@ -105,9 +103,8 @@ class App extends Component {
   render() {
     const { money, activeTab, isFormDialogOpen } = this.state;
     const { classes } = this.props;
-    const total = getTotalSum(money);
     return (
-      <React.Fragment>
+      <Fragment>
         <CssBaseline />
         <div className={classes.root}>
           <AppBar position="static" className={classes.header} >
@@ -131,7 +128,7 @@ class App extends Component {
                 <Tab icon={<PieChartIcon />} />
               </Tabs>
             </AppBar>
-            {activeTab === 0 && <ListTab total={total} />}
+            {activeTab === 0 && <ListTab />}
             {activeTab === 1 && <ChartTab money={money} />}
           </Paper>
           <Button
@@ -149,7 +146,7 @@ class App extends Component {
             onAddItem={this.handleAddItem}
           />
         </div>
-      </React.Fragment>
+      </Fragment>
     );
   }
 }

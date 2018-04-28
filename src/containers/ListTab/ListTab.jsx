@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { compose } from 'recompose';
 // Material UI
 import { withStyles } from 'material-ui/styles';
+// Selectors
+import { getTotal } from '../../reducers/money';
 // Configs
 import types from '../../config/types';
 // Components
@@ -49,6 +51,7 @@ ListTab.propTypes = propTypes;
 
 const mapStateToProps = state => ({
   money: state.money,
+  total: getTotal(state.money),
 });
 
 
