@@ -7,6 +7,8 @@ import { withStyles } from 'material-ui/styles';
 import Button from 'material-ui/Button';
 // Icons
 import AddIcon from 'material-ui-icons/Add';
+// Actions
+import addMoney from '../../actions';
 // Selectors
 import { getTotal } from '../../reducers/money';
 // Configs
@@ -45,6 +47,7 @@ const propTypes = {
     value: PropTypes.number.isRequired,
   }).isRequired).isRequired,
   total: PropTypes.number.isRequired,
+  addMoneyItem: PropTypes.func.isRequired,
 };
 
 class ListTab extends Component {
@@ -55,6 +58,7 @@ class ListTab extends Component {
     };
     this.handleFormDialogOpen = this.handleFormDialogOpen.bind(this);
     this.handleFormDialogClose = this.handleFormDialogClose.bind(this);
+    this.handleAddItem = this.handleAddItem.bind(this);
   }
 
   handleFormDialogOpen() {
@@ -65,8 +69,15 @@ class ListTab extends Component {
     this.setState({ isFormDialogOpen: false });
   }
 
+  handleAddItem(name, type, value) {
+    this.props.addMoneyItem(name, type, value);
+    this.handleFormDialogClose();
+  }
+
   render() {
-    const { classes, money, total } = this.props;
+    const {
+      classes, money, total,
+    } = this.props;
     const { isFormDialogOpen } = this.state;
     return (
       <div className={classes.root}>
@@ -103,5 +114,5 @@ const mapStateToProps = state => ({
 
 export default compose(
   withStyles(styles),
-  connect(mapStateToProps),
+  connect(mapStateToProps, { addMoneyItem: addMoney }),
 )(ListTab);

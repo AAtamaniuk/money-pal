@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import shortid from 'shortid';
 // Material UI
 import { withStyles } from 'material-ui/styles';
 import Typography from 'material-ui/Typography';
@@ -12,8 +11,6 @@ import Tabs, { Tab } from 'material-ui/Tabs';
 // Icons
 import ListIcon from 'material-ui-icons/List';
 import PieChartIcon from 'material-ui-icons/PieChart';
-// Test data
-import moneyData from '../../testData/money';
 // Containers
 import ListTab from '../../containers/ListTab/ListTab';
 // Components
@@ -50,31 +47,10 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      money: [],
       activeTab: 0,
     };
-    this.handleAddItem = this.handleAddItem.bind(this);
     this.handleChangeTab = this.handleChangeTab.bind(this);
   }
-
-  componentDidMount() {
-    this.setState({ money: moneyData });
-  }
-
-  handleAddItem(name, type, value) {
-    const newItem = {
-      id: shortid.generate(),
-      type,
-      name,
-      date: Date.now(),
-      value: type === 'income' ? Number(value) : -Number(value),
-    };
-    this.setState({
-      money: [...this.state.money, newItem],
-    });
-    this.handleFormDialogClose();
-  }
-
 
   handleChangeTab(event, value) {
     this.setState({ activeTab: value });
