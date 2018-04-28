@@ -1,12 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { compose } from 'recompose';
 // Material UI
 import { withStyles } from 'material-ui/styles';
 // Configs
 import types from '../../config/types';
 // Components
-import MoneyList from '../MoneyList/MoneyList';
-import Total from '../Total/Total';
+import MoneyList from '../../components/MoneyList/MoneyList';
+import Total from '../../components/Total/Total';
+
 
 const styles = theme => ({
   root: {
@@ -44,4 +47,12 @@ function ListTab({ classes, money, total }) {
 
 ListTab.propTypes = propTypes;
 
-export default withStyles(styles)(ListTab);
+const mapStateToProps = state => ({
+  money: state.money,
+});
+
+
+export default compose(
+  withStyles(styles),
+  connect(mapStateToProps),
+)(ListTab);

@@ -20,8 +20,9 @@ import './App.css';
 import moneyData from '../../testData/money';
 // Helpers
 import { getTotalSum } from '../../helpers/helpers';
+// Containers
+import ListTab from '../../containers/ListTab/ListTab';
 // Components
-import ListTab from '../ListTab/ListTab';
 import ChartTab from '../ChartTab/ChartTab';
 import FormDialog from '../FormDialog/FormDialog';
 
@@ -130,7 +131,7 @@ class App extends Component {
                 <Tab icon={<PieChartIcon />} />
               </Tabs>
             </AppBar>
-            {activeTab === 0 && <ListTab money={money} total={total} />}
+            {activeTab === 0 && <ListTab total={total} />}
             {activeTab === 1 && <ChartTab money={money} />}
           </Paper>
           <Button
