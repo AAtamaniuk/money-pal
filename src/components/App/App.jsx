@@ -13,8 +13,7 @@ import ListIcon from 'material-ui-icons/List';
 import PieChartIcon from 'material-ui-icons/PieChart';
 // Containers
 import ListTab from '../../containers/ListTab/ListTab';
-// Components
-import ChartTab from '../ChartTab/ChartTab';
+import ChartTab from '../../containers/ChartTab/ChartTab';
 
 
 const styles = theme => ({
@@ -57,7 +56,7 @@ class App extends Component {
   }
 
   render() {
-    const { money, activeTab } = this.state;
+    const { activeTab } = this.state;
     const { classes } = this.props;
     return (
       <Fragment>
@@ -85,7 +84,7 @@ class App extends Component {
               </Tabs>
             </AppBar>
             {activeTab === 0 && <ListTab />}
-            {activeTab === 1 && <ChartTab money={money} />}
+            {activeTab === 1 && <ChartTab />}
           </Paper>
         </div>
       </Fragment>
