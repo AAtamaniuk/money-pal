@@ -40,7 +40,7 @@ class FormDialog extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleAddItem = this.handleAddItem.bind(this);
-    this.clear = this.clear.bind(this);
+    this.clearInputs = this.clearInputs.bind(this);
   }
 
   handleChange(event) {
@@ -49,11 +49,13 @@ class FormDialog extends Component {
 
   handleAddItem() {
     const { name, category, value } = this.state;
-    this.props.onAddItem(name, category, value);
-    this.clear();
+    const { onAddItem, onDialogClose } = this.props;
+    onAddItem(name, category, value);
+    onDialogClose();
+    this.clearInputs();
   }
 
-  clear() {
+  clearInputs() {
     this.setState({
       name: '',
       category: '',
@@ -79,7 +81,6 @@ class FormDialog extends Component {
         <DialogContent>
           <TextField
             className={classes.field}
-            autoFocus
             id="select-currency"
             select
             label="Category"

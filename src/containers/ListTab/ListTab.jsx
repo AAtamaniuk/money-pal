@@ -71,7 +71,6 @@ class ListTab extends Component {
 
   handleAddItem(name, type, value) {
     this.props.addMoneyItem(name, type, value);
-    this.handleFormDialogClose();
   }
 
   render() {
