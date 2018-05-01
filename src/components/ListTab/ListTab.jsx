@@ -1,16 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { compose } from 'recompose';
 // Material UI
 import { withStyles } from 'material-ui/styles';
 import Button from 'material-ui/Button';
 // Icons
 import AddIcon from 'material-ui-icons/Add';
-// Actions
-import addMoney from '../../actions';
-// Selectors
-import { getTotal } from '../../reducers/money';
 // Configs
 import categories from '../../config/categories';
 // Components
@@ -105,13 +99,4 @@ class ListTab extends Component {
 
 ListTab.propTypes = propTypes;
 
-const mapStateToProps = state => ({
-  money: state.money,
-  total: getTotal(state.money),
-});
-
-
-export default compose(
-  withStyles(styles),
-  connect(mapStateToProps, { addMoneyItem: addMoney }),
-)(ListTab);
+export default withStyles(styles)(ListTab);

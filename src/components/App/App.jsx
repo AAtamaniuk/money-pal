@@ -12,8 +12,8 @@ import Tabs, { Tab } from 'material-ui/Tabs';
 import ListIcon from 'material-ui-icons/List';
 import PieChartIcon from 'material-ui-icons/PieChart';
 // Containers
-import ListTab from '../../containers/ListTab/ListTab';
-import ChartTab from '../../containers/ChartTab/ChartTab';
+import ConnectedList from '../../containers/ConnectedList/ConnectedList';
+import ConnectedCharts from '../../containers/ConnectedCharts/ConnectedCharts';
 
 
 const styles = theme => ({
@@ -83,8 +83,8 @@ class App extends Component {
                 <Tab icon={<PieChartIcon />} />
               </Tabs>
             </AppBar>
-            {activeTab === 0 && <ListTab />}
-            {activeTab === 1 && <ChartTab />}
+            {activeTab === 0 && <ConnectedList />}
+            {activeTab === 1 && <ConnectedCharts />}
           </Paper>
         </div>
       </Fragment>
