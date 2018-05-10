@@ -2,9 +2,7 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 // Material UI
 import { withStyles } from 'material-ui/styles';
-import Typography from 'material-ui/Typography';
 import AppBar from 'material-ui/AppBar';
-import Toolbar from 'material-ui/Toolbar';
 import Paper from 'material-ui/Paper';
 import CssBaseline from 'material-ui/CssBaseline';
 import Tabs, { Tab } from 'material-ui/Tabs';
@@ -14,13 +12,11 @@ import PieChartIcon from 'material-ui-icons/PieChart';
 // Containers
 import ConnectedList from '../../containers/ConnectedList/ConnectedList';
 import ConnectedCharts from '../../containers/ConnectedCharts/ConnectedCharts';
+// Components
+import Header from '../Header/Header';
 
 
 const styles = theme => ({
-  header: {
-    // boxShadow: 'none',
-    color: 'white',
-  },
   tabs: {
     flexGrow: 1,
     color: 'white',
@@ -33,7 +29,6 @@ const styles = theme => ({
     width: '100%',
     height: 'calc(100vh - 112px)',
     maxWidth: 1024,
-    // boxShadow: 'none',
   },
 });
 
@@ -58,18 +53,12 @@ class App extends Component {
   render() {
     const { activeTab } = this.state;
     const { classes } = this.props;
+
     return (
       <Fragment>
         <CssBaseline />
         <div className={classes.root}>
-          <AppBar position="static" className={classes.header} >
-            <Toolbar>
-              <Typography variant="title" color="inherit">
-                {activeTab === 0 && 'List'}
-                {activeTab === 1 && 'Chart'}
-              </Typography>
-            </Toolbar>
-          </AppBar>
+          <Header activeTab={activeTab} />
           <Paper className={classes.container}>
             <AppBar position="static" color="primary">
               <Tabs
