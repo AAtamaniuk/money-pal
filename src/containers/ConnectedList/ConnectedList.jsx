@@ -6,9 +6,10 @@ import categories from '../../config/categories';
 // Actions
 import addMoney from '../../actions';
 // Selectors
-import { getTotal } from '../../reducers/money';
+import { getTotalMoney, getMoney } from '../../selectors';
 // Components
 import ListTab from '../../components/ListTab/ListTab';
+
 
 const propTypes = {
   money: PropTypes.arrayOf(PropTypes.shape({
@@ -31,8 +32,8 @@ function ConnectedList({ money, total, addMoneyItem }) {
 ConnectedList.propTypes = propTypes;
 
 const mapStateToProps = state => ({
-  money: state.money,
-  total: getTotal(state.money),
+  money: getMoney(state),
+  total: getTotalMoney(state),
 });
 
 export default connect(mapStateToProps, { addMoneyItem: addMoney })(ConnectedList);
