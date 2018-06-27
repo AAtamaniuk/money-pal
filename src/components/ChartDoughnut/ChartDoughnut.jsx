@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Doughnut } from 'react-chartjs-2';
 // Material UI
-import Typography from 'material-ui/Typography';
+import Typography from '@material-ui/core/Typography';
 // Colors
-import red from 'material-ui/colors/red';
-import amber from 'material-ui/colors/amber';
-import blue from 'material-ui/colors/blue';
-import pink from 'material-ui/colors/pink';
+import red from '@material-ui/core/colors/red';
+import amber from '@material-ui/core/colors/amber';
+import blue from '@material-ui/core/colors/blue';
+import pink from '@material-ui/core/colors/pink';
 
 const propTypes = {
   data: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,

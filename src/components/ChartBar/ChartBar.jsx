@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Bar } from 'react-chartjs-2';
 // Material UI
-import Typography from 'material-ui/Typography';
+import Typography from '@material-ui/core/Typography';
 // Colors
-import red from 'material-ui/colors/red';
-import green from 'material-ui/colors/green';
+import red from '@material-ui/core/colors/red';
+import green from '@material-ui/core/colors/green';
 
 const propTypes = {
   data: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,

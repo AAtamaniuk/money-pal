@@ -1,14 +1,15 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 // Material UI
-import { withStyles } from 'material-ui/styles';
-import AppBar from 'material-ui/AppBar';
-import Paper from 'material-ui/Paper';
-import CssBaseline from 'material-ui/CssBaseline';
-import Tabs, { Tab } from 'material-ui/Tabs';
+import { withStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Paper from '@material-ui/core/Paper';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
 // Icons
-import ListIcon from 'material-ui-icons/List';
-import PieChartIcon from 'material-ui-icons/PieChart';
+import ListIcon from '@material-ui/icons/List';
+import PieChartIcon from '@material-ui/icons/PieChart';
 // Containers
 import ConnectedList from '../../containers/ConnectedList/ConnectedList';
 import ConnectedCharts from '../../containers/ConnectedCharts/ConnectedCharts';

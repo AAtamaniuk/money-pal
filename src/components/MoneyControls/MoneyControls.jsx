@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // Material UI
-import { withStyles } from 'material-ui/styles';
-import IconButton from 'material-ui/IconButton';
+import { withStyles } from '@material-ui/core/styles';
+import IconButton from '@material-ui/core/IconButton';
 // Icons
-import Sort from 'material-ui-icons/Sort';
-import FilterList from 'material-ui-icons/FilterList';
+import Sort from '@material-ui/icons/Sort';
+import FilterList from '@material-ui/icons/FilterList';
 
 const styles = {
   root: {

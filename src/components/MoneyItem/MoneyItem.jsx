@@ -2,21 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 // Material UI
-import { withStyles } from 'material-ui/styles';
-import { ListItem, ListItemText } from 'material-ui/List';
-import Avatar from 'material-ui/Avatar';
+import { withStyles } from '@material-ui/core/styles';
+import ListItemText from '@material-ui/core/ListItemText';
+import ListItem from '@material-ui/core/ListItem';
+import Avatar from '@material-ui/core/Avatar';
 // Icons
-import ArrowDownwarf from 'material-ui-icons/ArrowDownward';
-import LocalActivity from 'material-ui-icons/LocalActivity';
-import LocalDining from 'material-ui-icons/LocalDining';
-import LocalMall from 'material-ui-icons/LocalMall';
-import MoneyOff from 'material-ui-icons/MoneyOff';
+import ArrowDownwarf from '@material-ui/icons/ArrowDownward';
+import LocalActivity from '@material-ui/icons/LocalActivity';
+import LocalDining from '@material-ui/icons/LocalDining';
+import LocalMall from '@material-ui/icons/LocalMall';
+import MoneyOff from '@material-ui/icons/MoneyOff';
 // Colors
-import red from 'material-ui/colors/red';
-import green from 'material-ui/colors/green';
-import amber from 'material-ui/colors/amber';
-import blue from 'material-ui/colors/blue';
-import pink from 'material-ui/colors/pink';
+import red from '@material-ui/core/colors/red';
+import green from '@material-ui/core/colors/green';
+import amber from '@material-ui/core/colors/amber';
+import blue from '@material-ui/core/colors/blue';
+import pink from '@material-ui/core/colors/pink';
 // Config
 import categories from '../../config/categories';
 

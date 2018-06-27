@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import * as R from 'ramda';
 // Material UI
-import List from 'material-ui/List';
-import { withStyles } from 'material-ui/styles';
+import List from '@material-ui/core/List';
+import { withStyles } from '@material-ui/core/styles';
 // Configs
 import categories from '../../config/categories';
 // Components
