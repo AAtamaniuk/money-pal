@@ -37,17 +37,13 @@ const propTypes = {
 };
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      activeTab: 0
-    };
-    this.handleChangeTab = this.handleChangeTab.bind(this);
-  }
+  state = {
+    activeTab: 0
+  };
 
-  handleChangeTab(event, value) {
+  handleChangeTab = (event, value) => {
     this.setState({ activeTab: value });
-  }
+  };
 
   render() {
     const { activeTab } = this.state;

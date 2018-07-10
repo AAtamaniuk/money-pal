@@ -8,9 +8,9 @@ import AddIcon from "@material-ui/icons/Add";
 // Configs
 import categories from "../../config/categories";
 // Components
-import MoneyList from "../../components/MoneyList/MoneyList";
-import Total from "../../components/Total/Total";
-import FormDialog from "../../components/FormDialog/FormDialog";
+import MoneyList from "../MoneyList/MoneyList";
+import Total from "../Total/Total";
+import FormDialog from "../FormDialog/FormDialog";
 
 const styles = theme => ({
   root: {
@@ -46,27 +46,22 @@ const propTypes = {
 };
 
 class ListTab extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isFormDialogOpen: false
-    };
-    this.handleFormDialogOpen = this.handleFormDialogOpen.bind(this);
-    this.handleFormDialogClose = this.handleFormDialogClose.bind(this);
-    this.handleAddItem = this.handleAddItem.bind(this);
-  }
+  state = {
+    isFormDialogOpen: false
+  };
 
-  handleFormDialogOpen() {
+  handleFormDialogOpen = () => {
     this.setState({ isFormDialogOpen: true });
-  }
+  };
 
-  handleFormDialogClose() {
+  handleFormDialogClose = () => {
     this.setState({ isFormDialogOpen: false });
-  }
+  };
 
-  handleAddItem(name, type, value) {
-    this.props.addMoneyItem(name, type, value);
-  }
+  handleAddItem = (name, type, value) => {
+    const { addMoneyItem } = this.props;
+    addMoneyItem(name, type, value);
+  };
 
   render() {
     const { classes, money, total } = this.props;

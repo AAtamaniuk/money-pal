@@ -30,37 +30,32 @@ const propTypes = {
 };
 
 class FormDialog extends Component {
-  constructor() {
-    super();
-    this.state = {
-      name: "",
-      category: "",
-      value: ""
-    };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleAddItem = this.handleAddItem.bind(this);
-    this.clearInputs = this.clearInputs.bind(this);
-  }
+  state = {
+    name: "",
+    category: "",
+    value: ""
+  };
 
-  handleChange(event) {
-    this.setState({ [event.target.name]: event.target.value });
-  }
+  handleChange = event => {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
+  };
 
-  handleAddItem() {
+  handleAddItem = () => {
     const { name, category, value } = this.state;
     const { onAddItem, onDialogClose } = this.props;
     onAddItem(name, category, value);
     onDialogClose();
     this.clearInputs();
-  }
+  };
 
-  clearInputs() {
+  clearInputs = () => {
     this.setState({
       name: "",
       category: "",
       value: ""
     });
-  }
+  };
 
   render() {
     const { name, category, value } = this.state;

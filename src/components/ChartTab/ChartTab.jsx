@@ -4,8 +4,8 @@ import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 // Components
-import ChartDoughnut from "../../components/ChartDoughnut/ChartDoughnut";
-import ChartBar from "../../components/ChartBar/ChartBar";
+import ChartDoughnut from "../ChartDoughnut/ChartDoughnut";
+import ChartBar from "../ChartBar/ChartBar";
 
 const styles = theme => ({
   root: {
