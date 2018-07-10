@@ -67,8 +67,12 @@ class App extends Component {
                 <Tab icon={<PieChartIcon />} />
               </Tabs>
             </AppBar>
-            {activeTab === 0 && <ConnectedList />}
-            {activeTab === 1 && <ConnectedCharts />}
+            {
+              {
+                0: <ConnectedList />,
+                1: <ConnectedCharts />
+              }[activeTab]
+            }
           </Paper>
         </div>
       </Fragment>
