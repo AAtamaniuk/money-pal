@@ -1,6 +1,5 @@
-import { ADD_MONEY } from '../constants/actionTypes';
-import moneyData from '../testData/money';
-
+import { ADD_MONEY } from "../constants/actionTypes";
+import moneyData from "../testData/money";
 
 const initialState = moneyData;
 
@@ -12,7 +11,7 @@ export const moneyItem = (state, action) => {
         category: action.category,
         name: action.name,
         date: action.date,
-        value: action.value,
+        value: action.value
       };
     }
 
@@ -21,19 +20,14 @@ export const moneyItem = (state, action) => {
   }
 };
 
-
 const money = (state = initialState, action) => {
   switch (action.type) {
     case ADD_MONEY:
-      return [
-        moneyItem(null, action),
-        ...state,
-      ];
+      return [moneyItem(null, action), ...state];
 
     default:
       return state;
   }
 };
-
 
 export default money;

@@ -1,41 +1,41 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 // Material UI
-import { withStyles } from '@material-ui/core/styles';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import MenuItem from '@material-ui/core/MenuItem';
+import { withStyles } from "@material-ui/core/styles";
+import Dialog from "@material-ui/core/Dialog";
+import DialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogTitle from "@material-ui/core/DialogTitle";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+import MenuItem from "@material-ui/core/MenuItem";
 // Config
-import categories from '../../config/categories';
+import categories from "../../config/categories";
 
 const styles = {
   dialog: {
     width: 480,
-    maxWidth: '100%',
+    maxWidth: "100%"
   },
   field: {
-    marginBottom: 16,
-  },
+    marginBottom: 16
+  }
 };
 
 const propTypes = {
   classes: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
   isOpen: PropTypes.bool.isRequired,
   onDialogClose: PropTypes.func.isRequired,
-  onAddItem: PropTypes.func.isRequired,
+  onAddItem: PropTypes.func.isRequired
 };
 
 class FormDialog extends Component {
   constructor() {
     super();
     this.state = {
-      name: '',
-      category: '',
-      value: '',
+      name: "",
+      category: "",
+      value: ""
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleAddItem = this.handleAddItem.bind(this);
@@ -56,24 +56,22 @@ class FormDialog extends Component {
 
   clearInputs() {
     this.setState({
-      name: '',
-      category: '',
-      value: '',
+      name: "",
+      category: "",
+      value: ""
     });
   }
 
   render() {
     const { name, category, value } = this.state;
-    const {
-      classes, isOpen, onDialogClose,
-    } = this.props;
+    const { classes, isOpen, onDialogClose } = this.props;
     return (
       <Dialog
         open={isOpen}
         onClose={onDialogClose}
         aria-labelledby="form-dialog-title"
         classes={{
-          paper: classes.dialog,
+          paper: classes.dialog
         }}
       >
         <DialogTitle id="form-dialog-title">Add new item</DialogTitle>

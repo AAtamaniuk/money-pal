@@ -1,54 +1,55 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 // Material UI
-import { withStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
+import { withStyles } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
 // Icons
-import AddIcon from '@material-ui/icons/Add';
+import AddIcon from "@material-ui/icons/Add";
 // Configs
-import categories from '../../config/categories';
+import categories from "../../config/categories";
 // Components
-import MoneyList from '../../components/MoneyList/MoneyList';
-import Total from '../../components/Total/Total';
-import FormDialog from '../../components/FormDialog/FormDialog';
-
+import MoneyList from "../../components/MoneyList/MoneyList";
+import Total from "../../components/Total/Total";
+import FormDialog from "../../components/FormDialog/FormDialog";
 
 const styles = theme => ({
   root: {
-    display: 'flex',
-    flexDirection: 'column',
+    display: "flex",
+    flexDirection: "column",
     height: `calc(100% - ${theme.spacing.unit * 6}px)`, // totalContainer height
-    position: 'relative',
+    position: "relative"
   },
   totalContainer: {
-    height: theme.spacing.unit * 6,
+    height: theme.spacing.unit * 6
   },
   button: {
-    position: 'absolute',
+    position: "absolute",
     bottom: theme.spacing.unit * 3,
     right: theme.spacing.unit * 4,
-    color: 'white',
-  },
+    color: "white"
+  }
 });
 
 const propTypes = {
   classes: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
-  money: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    category: PropTypes.oneOf(categories).isRequired,
-    name: PropTypes.string.isRequired,
-    date: PropTypes.number.isRequired,
-    value: PropTypes.number.isRequired,
-  }).isRequired).isRequired,
+  money: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      category: PropTypes.oneOf(categories).isRequired,
+      name: PropTypes.string.isRequired,
+      date: PropTypes.number.isRequired,
+      value: PropTypes.number.isRequired
+    }).isRequired
+  ).isRequired,
   total: PropTypes.number.isRequired,
-  addMoneyItem: PropTypes.func.isRequired,
+  addMoneyItem: PropTypes.func.isRequired
 };
 
 class ListTab extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isFormDialogOpen: false,
+      isFormDialogOpen: false
     };
     this.handleFormDialogOpen = this.handleFormDialogOpen.bind(this);
     this.handleFormDialogClose = this.handleFormDialogClose.bind(this);
@@ -68,9 +69,7 @@ class ListTab extends Component {
   }
 
   render() {
-    const {
-      classes, money, total,
-    } = this.props;
+    const { classes, money, total } = this.props;
     const { isFormDialogOpen } = this.state;
     return (
       <div className={classes.root}>

@@ -1,48 +1,46 @@
-import React, { Component, Fragment } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component, Fragment } from "react";
+import PropTypes from "prop-types";
 // Material UI
-import { withStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Paper from '@material-ui/core/Paper';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
+import { withStyles } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import Paper from "@material-ui/core/Paper";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
 // Icons
-import ListIcon from '@material-ui/icons/List';
-import PieChartIcon from '@material-ui/icons/PieChart';
+import ListIcon from "@material-ui/icons/List";
+import PieChartIcon from "@material-ui/icons/PieChart";
 // Containers
-import ConnectedList from '../../containers/ConnectedList/ConnectedList';
-import ConnectedCharts from '../../containers/ConnectedCharts/ConnectedCharts';
+import ConnectedList from "../../containers/ConnectedList/ConnectedList";
+import ConnectedCharts from "../../containers/ConnectedCharts/ConnectedCharts";
 // Components
-import Header from '../Header/Header';
-
+import Header from "../Header/Header";
 
 const styles = theme => ({
   tabs: {
     flexGrow: 1,
-    color: 'white',
+    color: "white"
   },
   container: {
     marginTop: theme.spacing.unit * 3,
     marginBottom: theme.spacing.unit * 3,
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    width: '100%',
-    height: 'calc(100vh - 112px)',
-    maxWidth: 1024,
-  },
+    marginLeft: "auto",
+    marginRight: "auto",
+    width: "100%",
+    height: "calc(100vh - 112px)",
+    maxWidth: 1024
+  }
 });
 
 const propTypes = {
-  classes: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+  classes: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
 };
-
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      activeTab: 0,
+      activeTab: 0
     };
     this.handleChangeTab = this.handleChangeTab.bind(this);
   }

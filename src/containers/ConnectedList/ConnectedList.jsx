@@ -1,39 +1,41 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import React from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 // Configs
-import categories from '../../config/categories';
+import categories from "../../config/categories";
 // Actions
-import addMoney from '../../actions';
+import addMoney from "../../actions";
 // Selectors
-import { getTotalMoney, getMoney } from '../../selectors';
+import { getTotalMoney, getMoney } from "../../selectors";
 // Components
-import ListTab from '../../components/ListTab/ListTab';
-
+import ListTab from "../../components/ListTab/ListTab";
 
 const propTypes = {
-  money: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    category: PropTypes.oneOf(categories).isRequired,
-    name: PropTypes.string.isRequired,
-    date: PropTypes.number.isRequired,
-    value: PropTypes.number.isRequired,
-  }).isRequired).isRequired,
+  money: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      category: PropTypes.oneOf(categories).isRequired,
+      name: PropTypes.string.isRequired,
+      date: PropTypes.number.isRequired,
+      value: PropTypes.number.isRequired
+    }).isRequired
+  ).isRequired,
   total: PropTypes.number.isRequired,
-  addMoneyItem: PropTypes.func.isRequired,
+  addMoneyItem: PropTypes.func.isRequired
 };
 
 function ConnectedList({ money, total, addMoneyItem }) {
-  return (
-    <ListTab money={money} total={total} addMoneyItem={addMoneyItem} />
-  );
+  return <ListTab money={money} total={total} addMoneyItem={addMoneyItem} />;
 }
 
 ConnectedList.propTypes = propTypes;
 
 const mapStateToProps = state => ({
   money: getMoney(state),
-  total: getTotalMoney(state),
+  total: getTotalMoney(state)
 });
 
-export default connect(mapStateToProps, { addMoneyItem: addMoney })(ConnectedList);
+export default connect(
+  mapStateToProps,
+  { addMoneyItem: addMoney }
+)(ConnectedList);

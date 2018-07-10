@@ -1,21 +1,21 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 // Material UI
-import { withStyles } from '@material-ui/core/styles';
-import IconButton from '@material-ui/core/IconButton';
+import { withStyles } from "@material-ui/core/styles";
+import IconButton from "@material-ui/core/IconButton";
 // Icons
-import Sort from '@material-ui/icons/Sort';
-import FilterList from '@material-ui/icons/FilterList';
+import Sort from "@material-ui/icons/Sort";
+import FilterList from "@material-ui/icons/FilterList";
 
 const styles = {
   root: {
-    textAlign: 'right',
-    padding: '0 24px',
-  },
+    textAlign: "right",
+    padding: "0 24px"
+  }
 };
 
 const propTypes = {
-  classes: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+  classes: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
 };
 
 function MoneyControls({ classes }) {
