@@ -33,7 +33,7 @@ class FormDialog extends Component {
   state = {
     name: "",
     category: "",
-    value: ""
+    amount: ""
   };
 
   handleChange = event => {
@@ -42,9 +42,9 @@ class FormDialog extends Component {
   };
 
   handleAddItem = () => {
-    const { name, category, value } = this.state;
+    const { name, category, amount } = this.state;
     const { onAddItem, onDialogClose } = this.props;
-    onAddItem(name, category, value);
+    onAddItem(name, category, amount);
     onDialogClose();
     this.clearInputs();
   };
@@ -53,17 +53,18 @@ class FormDialog extends Component {
     this.setState({
       name: "",
       category: "",
-      value: ""
+      amount: ""
     });
   };
 
   render() {
-    const { name, category, value } = this.state;
+    const { name, category, amount } = this.state;
     const { classes, isOpen, onDialogClose } = this.props;
     return (
       <Dialog
         open={isOpen}
         onClose={onDialogClose}
+        // eslint-disable-next-line
         aria-labelledby="form-dialog-title"
         classes={{
           paper: classes.dialog
@@ -99,11 +100,11 @@ class FormDialog extends Component {
           />
           <TextField
             className={classes.field}
-            id="value"
-            label="Value"
+            id="amount"
+            label="Amount"
             type="number"
-            value={value}
-            name="value"
+            value={amount}
+            name="amount"
             onChange={this.handleChange}
             fullWidth
           />

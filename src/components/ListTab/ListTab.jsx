@@ -38,7 +38,7 @@ const propTypes = {
       category: PropTypes.oneOf(categories).isRequired,
       name: PropTypes.string.isRequired,
       date: PropTypes.number.isRequired,
-      value: PropTypes.number.isRequired
+      amount: PropTypes.number.isRequired
     }).isRequired
   ).isRequired,
   total: PropTypes.number.isRequired,
@@ -58,9 +58,9 @@ class ListTab extends Component {
     this.setState({ isFormDialogOpen: false });
   };
 
-  handleAddItem = (name, type, value) => {
+  handleAddItem = (name, type, amount) => {
     const { addMoneyItem } = this.props;
-    addMoneyItem(name, type, value);
+    addMoneyItem(name, type, amount);
   };
 
   render() {

@@ -52,10 +52,10 @@ const propTypes = {
   category: PropTypes.oneOf(categories).isRequired,
   name: PropTypes.string.isRequired,
   date: PropTypes.number.isRequired,
-  value: PropTypes.number.isRequired
+  amount: PropTypes.number.isRequired
 };
 
-function MoneyItem({ classes, category, name, date, value }) {
+function MoneyItem({ classes, category, name, date, amount }) {
   const formattedDate = moment(date)
     .utc()
     .startOf("second")
@@ -75,9 +75,9 @@ function MoneyItem({ classes, category, name, date, value }) {
       </Avatar>
       <ListItemText primary={name} secondary={formattedDate} />
       {category === "income" ? (
-        <span className={classes.incomeNumber}>+{value}</span>
+        <span className={classes.incomeNumber}>+{amount}</span>
       ) : (
-        <span className={classes.costNumber}>{value}</span>
+        <span className={classes.costNumber}>{amount}</span>
       )}
     </ListItem>
   );

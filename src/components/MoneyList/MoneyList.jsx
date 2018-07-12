@@ -25,7 +25,7 @@ const propTypes = {
       category: PropTypes.oneOf(categories).isRequired,
       name: PropTypes.string.isRequired,
       date: PropTypes.number.isRequired,
-      value: PropTypes.number.isRequired
+      amount: PropTypes.number.isRequired
     }).isRequired
   ).isRequired
 };
@@ -43,7 +43,7 @@ function MoneyList({ classes, money }) {
             category={i.category}
             name={i.name}
             date={i.date}
-            value={i.value}
+            amount={i.amount}
           />
         ))}
       </List>

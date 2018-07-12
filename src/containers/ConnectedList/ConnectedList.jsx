@@ -17,7 +17,7 @@ const propTypes = {
       category: PropTypes.oneOf(categories).isRequired,
       name: PropTypes.string.isRequired,
       date: PropTypes.number.isRequired,
-      value: PropTypes.number.isRequired
+      amount: PropTypes.number.isRequired
     }).isRequired
   ).isRequired,
   total: PropTypes.number.isRequired,

@@ -5,21 +5,26 @@ import * as R from "ramda";
 
 // Helpers
 
-const getValues = i => i.value;
+const getAmounts = i => i.amount;
+
 const getCategories = i => i.category;
 
 const getCategoriesList = array => R.uniq(R.map(getCategories, array));
+
 const getCostCategoriesOnly = array =>
   R.filter(i => i !== "income", getCategoriesList(array));
-const getTotal = array => R.sum(R.map(getValues, array));
+
+const getTotal = array => R.sum(R.map(getAmounts, array));
 
 const filterByCategory = (array, category) =>
   R.filter(i => i.category === category, array);
+
 const getSumByCategory = (array, category) =>
   getTotal(filterByCategory(array, category));
 
 const getIcomeSum = array =>
   getTotal(R.filter(i => i.category === "income", array));
+
 const getCostsSum = array =>
   getTotal(R.filter(i => i.category !== "income", array));
 
