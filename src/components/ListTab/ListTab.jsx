@@ -37,7 +37,7 @@ const propTypes = {
       id: PropTypes.string.isRequired,
       category: PropTypes.oneOf(categories).isRequired,
       name: PropTypes.string.isRequired,
-      date: PropTypes.number.isRequired,
+      createdAt: PropTypes.number.isRequired,
       amount: PropTypes.number.isRequired
     }).isRequired
   ).isRequired,

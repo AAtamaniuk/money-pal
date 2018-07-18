@@ -51,12 +51,12 @@ const propTypes = {
   classes: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
   category: PropTypes.oneOf(categories).isRequired,
   name: PropTypes.string.isRequired,
-  date: PropTypes.number.isRequired,
+  createdAt: PropTypes.number.isRequired,
   amount: PropTypes.number.isRequired
 };
 
-function MoneyItem({ classes, category, name, date, amount }) {
-  const formattedDate = moment(date)
+function MoneyItem({ classes, category, name, createdAt, amount }) {
+  const formattedDate = moment(createdAt)
     .utc()
     .startOf("second")
     .fromNow();

@@ -6,7 +6,7 @@ const addMoney = (name, category, amount) => ({
   id: shortid.generate(),
   category,
   name,
-  date: Date.now(),
+  createdAt: Date.now(),
   amount: category === "income" ? Number(amount) : -Number(amount)
 });
 

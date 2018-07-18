@@ -24,14 +24,14 @@ const propTypes = {
       id: PropTypes.string.isRequired,
       category: PropTypes.oneOf(categories).isRequired,
       name: PropTypes.string.isRequired,
-      date: PropTypes.number.isRequired,
+      createdAt: PropTypes.number.isRequired,
       amount: PropTypes.number.isRequired
     }).isRequired
   ).isRequired
 };
 
 function MoneyList({ classes, money }) {
-  const sortByProp = R.sortBy(R.prop("date"));
+  const sortByProp = R.sortBy(R.prop("createdAt"));
   const sortesMoney = sortByProp(money);
   return (
     <div className={classes.root}>
@@ -42,7 +42,7 @@ function MoneyList({ classes, money }) {
             key={i.id}
             category={i.category}
             name={i.name}
-            date={i.date}
+            createdAt={i.createdAt}
             amount={i.amount}
           />
         ))}

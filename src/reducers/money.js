@@ -10,7 +10,7 @@ export const moneyItem = (state, action) => {
         id: action.id,
         category: action.category,
         name: action.name,
-        date: action.date,
+        createdAt: action.createdAt,
         amount: action.amount
       };
     }
