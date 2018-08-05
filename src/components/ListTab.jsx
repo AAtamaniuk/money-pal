@@ -1,5 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 // Material UI
 import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
@@ -10,7 +11,6 @@ import categories from "../config/categories";
 // Components
 import MoneyList from "./MoneyList";
 import Total from "./Total";
-import FormDialog from "./FormDialog";
 
 const styles = theme => ({
   root: {
@@ -41,54 +41,29 @@ const propTypes = {
       value: PropTypes.number.isRequired
     }).isRequired
   ).isRequired,
-  total: PropTypes.number.isRequired,
-  addMoneyItem: PropTypes.func.isRequired
+  total: PropTypes.number.isRequired
 };
 
-class ListTab extends Component {
-  state = {
-    isFormDialogOpen: false
-  };
-
-  handleFormDialogOpen = () => {
-    this.setState({ isFormDialogOpen: true });
-  };
-
-  handleFormDialogClose = () => {
-    this.setState({ isFormDialogOpen: false });
-  };
-
-  handleAddItem = (name, type, value) => {
-    const { addMoneyItem } = this.props;
-    addMoneyItem(name, type, value);
-  };
-
-  render() {
-    const { classes, money, total } = this.props;
-    const { isFormDialogOpen } = this.state;
-    return (
-      <div className={classes.root}>
-        <MoneyList money={money} />
-        <div className={classes.totalContainer}>
-          <Total total={total} />
-        </div>
-        <FormDialog
-          isOpen={isFormDialogOpen}
-          onDialogClose={this.handleFormDialogClose}
-          onAddItem={this.handleAddItem}
-        />
-        <Button
-          variant="fab"
-          color="secondary"
-          aria-label="add"
-          className={classes.button}
-          onClick={this.handleFormDialogOpen}
-        >
-          <AddIcon />
-        </Button>
+function ListTab(props) {
+  const { classes, money, total } = props;
+  return (
+    <div className={classes.root}>
+      <MoneyList money={money} />
+      <div className={classes.totalContainer}>
+        <Total total={total} />
       </div>
-    );
-  }
+      <Button
+        variant="fab"
+        color="secondary"
+        aria-label="add"
+        className={classes.button}
+        component={Link}
+        to="/create"
+      >
+        <AddIcon />
+      </Button>
+    </div>
+  );
 }
 
 ListTab.propTypes = propTypes;
