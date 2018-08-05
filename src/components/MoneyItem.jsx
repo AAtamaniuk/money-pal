@@ -19,7 +19,7 @@ import amber from "@material-ui/core/colors/amber";
 import blue from "@material-ui/core/colors/blue";
 import pink from "@material-ui/core/colors/pink";
 // Config
-import categories from "../../config/categories";
+import categories from "../config/categories";
 
 const styles = {
   incomeNumber: {

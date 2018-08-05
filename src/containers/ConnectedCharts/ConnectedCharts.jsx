@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 // Selectors
 import { getDataSetByCosts, getDataSetByType } from "../../selectors";
 // Components
-import ChartTab from "../../components/ChartTab/ChartTab";
+import ChartTab from "../../components/ChartTab";
 
 const propTypes = {
   dataSetByCost: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,

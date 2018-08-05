@@ -10,7 +10,7 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import MenuItem from "@material-ui/core/MenuItem";
 // Config
-import categories from "../../config/categories";
+import categories from "../config/categories";
 
 const styles = {
   dialog: {

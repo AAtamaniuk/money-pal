@@ -3,11 +3,11 @@ import { Provider } from "react-redux";
 // Material UI
 import { MuiThemeProvider } from "@material-ui/core/styles";
 // Configs
-import theme from "../../config/theme";
+import theme from "../config/theme";
 // Redux
-import store from "../../store";
+import store from "../store/index";
 // Components
-import App from "../App/App";
+import App from "./App";
 
 function Root() {
   return (

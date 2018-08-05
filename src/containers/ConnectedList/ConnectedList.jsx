@@ -4,11 +4,11 @@ import { connect } from "react-redux";
 // Configs
 import categories from "../../config/categories";
 // Actions
-import addMoney from "../../actions";
+import { addMoneyRecord } from "../../actions/moneyRecords";
 // Selectors
 import { getTotalMoney, getMoney } from "../../selectors";
 // Components
-import ListTab from "../../components/ListTab/ListTab";
+import ListTab from "../../components/ListTab";
 
 const propTypes = {
   money: PropTypes.arrayOf(
@@ -37,5 +37,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { addMoneyItem: addMoney }
+  { addMoneyItem: addMoneyRecord }
 )(ConnectedList);

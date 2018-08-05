@@ -6,11 +6,11 @@ import Button from "@material-ui/core/Button";
 // Icons
 import AddIcon from "@material-ui/icons/Add";
 // Configs
-import categories from "../../config/categories";
+import categories from "../config/categories";
 // Components
-import MoneyList from "../MoneyList/MoneyList";
-import Total from "../Total/Total";
-import FormDialog from "../FormDialog/FormDialog";
+import MoneyList from "./MoneyList";
+import Total from "./Total";
+import FormDialog from "./FormDialog";
 
 const styles = theme => ({
   root: {

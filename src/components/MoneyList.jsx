@@ -5,9 +5,9 @@ import * as R from "ramda";
 import List from "@material-ui/core/List";
 import { withStyles } from "@material-ui/core/styles";
 // Configs
-import categories from "../../config/categories";
+import categories from "../config/categories";
 // Components
-import MoneyItem from "../MoneyItem/MoneyItem";
+import MoneyItem from "./MoneyItem";
 
 const styles = () => ({
   root: {
