@@ -1,5 +1,6 @@
 import React from "react";
-import PropTypes from "prop-types";
+// Material UI
+import Paper from "@material-ui/core/Paper";
 
 const NotFoundPage = props => (
   <div>

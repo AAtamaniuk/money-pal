@@ -1,16 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
+import MoneyForm from "./MoneyForm";
 
-const AddMoneyPage = props => {
-  return (
-    <div>
-      <h1>Add money record</h1>
-    </div>
-  );
-};
+const AddMoneyPage = props => (
+  <div>
+    <h1>Add money record</h1>
+    <MoneyForm />
+  </div>
+);
 
-AddMoneyPage.propTypes = {
-
-};
+AddMoneyPage.propTypes = {};
 
 export default AddMoneyPage;

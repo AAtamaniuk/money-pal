@@ -15,6 +15,8 @@ function App() {
       <CssBaseline />
       <Header title="Money Pal" />
       <Link to="/create">Create</Link>
+      <Link to="/edit">Edit</Link>
+      <Link to="/123abc">404</Link>
       <Switch>
         <Route path="/" exact component={DashboardPage} />
         <Route path="/create" component={AddMoneyPage} />

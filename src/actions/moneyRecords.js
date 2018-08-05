@@ -1,14 +1,14 @@
 import shortid from "shortid";
 import * as types from "../constants/actionTypes";
 
-const addMoneyRecord = (description, category, amount, createdAt) => ({
+const addMoneyRecord = (category, description, amount, createdAt) => ({
   type: types.ADD_MONEY_RECORD,
   moneyRecord: {
     id: shortid.generate(),
     category,
     description,
-    createdAt,
-    amount: category === "income" ? Number(amount) : -Number(amount)
+    amount: category === "income" ? Number(amount) : -Number(amount),
+    createdAt
   }
 });
 
