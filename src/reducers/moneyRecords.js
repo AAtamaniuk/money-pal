@@ -1,6 +1,7 @@
 import * as types from "../constants/actionTypes";
+import money from "../testData/money";
 
-const initialState = [];
+const initialState = money;
 
 export const moneyRecords = (state = initialState, action) => {
   switch (action.type) {

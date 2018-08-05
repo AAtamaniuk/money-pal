@@ -23,9 +23,9 @@ const propTypes = {
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       category: PropTypes.oneOf(categories).isRequired,
-      name: PropTypes.string.isRequired,
-      date: PropTypes.number.isRequired,
-      value: PropTypes.number.isRequired
+      description: PropTypes.string.isRequired,
+      createdAt: PropTypes.number.isRequired,
+      amount: PropTypes.number.isRequired
     }).isRequired
   ).isRequired
 };
@@ -41,9 +41,9 @@ function MoneyList({ classes, money }) {
           <MoneyItem
             key={i.id}
             category={i.category}
-            name={i.name}
-            date={i.date}
-            value={i.value}
+            description={i.description}
+            createdAt={i.createdAt}
+            amount={i.amount}
           />
         ))}
       </List>

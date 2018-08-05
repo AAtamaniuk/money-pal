@@ -50,16 +50,12 @@ const styles = {
 const propTypes = {
   classes: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
   category: PropTypes.oneOf(categories).isRequired,
-  name: PropTypes.string.isRequired,
-  date: PropTypes.number.isRequired,
-  value: PropTypes.number.isRequired
+  description: PropTypes.string.isRequired,
+  amount: PropTypes.number.isRequired,
+  createdAt: PropTypes.number.isRequired
 };
 
-function MoneyItem({ classes, category, name, date, value }) {
-  const formattedDate = moment(date)
-    .utc()
-    .startOf("second")
-    .fromNow();
+function MoneyItem({ classes, category, description, amount, createdAt }) {
   return (
     <ListItem>
       <Avatar className={classes[category]}>
@@ -73,11 +69,11 @@ function MoneyItem({ classes, category, name, date, value }) {
           }[category]
         }
       </Avatar>
-      <ListItemText primary={name} secondary={formattedDate} />
+      <ListItemText primary={description} secondary={createdAt} />
       {category === "income" ? (
-        <span className={classes.incomeNumber}>+{value}</span>
+        <span className={classes.incomeNumber}>+{amount}</span>
       ) : (
-        <span className={classes.costNumber}>{value}</span>
+        <span className={classes.costNumber}>{amount}</span>
       )}
     </ListItem>
   );

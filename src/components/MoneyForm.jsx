@@ -77,7 +77,9 @@ class MoneyForm extends Component {
             onChange={this.handleChange}
           />
         </div>
-        <Button type="submit">Add</Button>
+        <Button color="primary" type="submit">
+          Add
+        </Button>
         <Button component={Link} to="/">
           Cancel
         </Button>
