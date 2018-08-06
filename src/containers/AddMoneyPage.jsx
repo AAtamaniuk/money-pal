@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { addMoneyRecord } from "../actions/moneyRecords";
-import MoneyForm from "./MoneyForm";
+import MoneyForm from "../components/MoneyForm";
 
 class AddMoneyPage extends Component {
   onSubmit = moneyRecord => {

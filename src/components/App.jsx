@@ -5,8 +5,8 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 // Components
 import DashboardPage from "./DashboardPage";
 import Header from "./Header";
-import AddMoneyPage from "./AddMoneyPage";
-import EditMoneyPage from "./EditMoneyPage";
+import AddMoneyPage from "../containers/AddMoneyPage";
+import EditMoneyPage from "../containers/EditMoneyPage";
 import NotFoundPage from "./NotFoundPage";
 
 function App() {

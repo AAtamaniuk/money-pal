@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import DatePicker from "material-ui-pickers/DatePicker";
+import moment from "moment";
+
 // Material UI
 import MenuItem from "@material-ui/core/MenuItem";
 import TextField from "@material-ui/core/TextField";
@@ -17,7 +20,7 @@ class MoneyForm extends Component {
       category: moneyRecord ? moneyRecord.category : "income",
       description: moneyRecord ? moneyRecord.description : "",
       amount: moneyRecord ? moneyRecord.amount / 100 : "",
-      createdAt: moneyRecord ? moneyRecord.createdAt : "",
+      createdAt: moneyRecord ? moneyRecord.createdAt : moment(),
       errors: {}
     };
   }
@@ -29,6 +32,12 @@ class MoneyForm extends Component {
     } else {
       this.setState(() => ({ [name]: value }));
     }
+  };
+
+  handleDateChange = date => {
+    this.setState(() => ({
+      createdAt: date
+    }));
   };
 
   normalizeAmount = value => {
@@ -43,10 +52,8 @@ class MoneyForm extends Component {
     const { onSubmit } = this.props;
     const { category, description, amount, createdAt } = this.state;
     const errors = this.validate({ category, description, amount, createdAt });
-    if (errors.keys > 0) {
-      this.setState(() => ({ errors }));
-    } else {
-      this.setState(() => ({ errors: {} }));
+    this.setState(() => ({ errors }));
+    if (Object.keys(errors).length === 0) {
       const parsedAmount = parseFloat(amount, 10) * 100;
       onSubmit({
         category,
@@ -60,8 +67,8 @@ class MoneyForm extends Component {
   validate = data => {
     const errors = {};
     if (!data.description.length) errors.description = "This field is required";
-    if (!data.amount.length) errors.amount = "This field is required";
-    if (!data.createdAt.length) errors.createdAt = "This field is required";
+    if (!data.amount.toString().length)
+      errors.amount = "This field is required";
     return errors;
   };
 
@@ -72,6 +79,9 @@ class MoneyForm extends Component {
         <div>
           <TextField
             select
+            SelectProps={{
+              autoWidth: true
+            }}
             id="category"
             label="Category"
             value={category}
@@ -114,17 +124,16 @@ class MoneyForm extends Component {
         </div>
 
         <div>
-          <TextField
-            id="createdAt"
-            label="Date*"
+          <DatePicker
             value={createdAt}
-            name="createdAt"
-            onChange={this.handleChange}
-            error={!!errors.createdAt}
-            helperText={errors.createdAt}
-            margin="normal"
+            onChange={this.handleDateChange}
+            label="Date"
+            autoOk
+            disableFuture
+            showTodayButton
           />
         </div>
+
         <Button color="primary" type="submit">
           Add
         </Button>
@@ -141,14 +150,14 @@ MoneyForm.propTypes = {
   moneyRecord: PropTypes.shape(moneyRecordProps)
 };
 
-MoneyForm.defaultProps = {
+/* MoneyForm.defaultProps = {
   moneyRecord: {
     id: "",
     category: "income",
     description: "",
     amount: "",
-    createdAt: ""
+    createdAt: moment()
   }
-};
+}; */
 
 export default MoneyForm;

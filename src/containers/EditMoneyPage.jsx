@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import MoneyForm from "./MoneyForm";
+import MoneyForm from "../components/MoneyForm";
 // Redux
 import { editMoneyRecord } from "../actions/moneyRecords";
-import { findMoneyRecordById } from "../selectors";
+import { findMoneyRecordById } from "../selectors/index";
 // Configs
 import moneyRecordProps from "../config/moneyRecordProps";
 

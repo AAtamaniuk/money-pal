@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import moment from "moment";
 // Material UI
 import { withStyles } from "@material-ui/core/styles";
 import ListItemText from "@material-ui/core/ListItemText";
@@ -70,7 +71,10 @@ function MoneyItem({ classes, id, category, description, amount, createdAt }) {
           }[category]
         }
       </Avatar>
-      <ListItemText primary={description} secondary={createdAt} />
+      <ListItemText
+        primary={description}
+        secondary={moment(createdAt).format("ddd, MMMM Do YYYY")}
+      />
       {category === "income" ? (
         <span className={classes.incomeNumber}>+{amount / 100}</span>
       ) : (
