@@ -16,7 +16,7 @@ class MoneyForm extends Component {
     this.state = {
       category: moneyRecord ? moneyRecord.category : "income",
       description: moneyRecord ? moneyRecord.description : "",
-      amount: moneyRecord ? moneyRecord.amount : "",
+      amount: moneyRecord ? moneyRecord.amount / 100 : "",
       createdAt: moneyRecord ? moneyRecord.createdAt : "",
       errors: {}
     };
@@ -41,17 +41,17 @@ class MoneyForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
     const { onSubmit } = this.props;
-
     const { category, description, amount, createdAt } = this.state;
     const errors = this.validate({ category, description, amount, createdAt });
     if (errors.keys > 0) {
       this.setState(() => ({ errors }));
     } else {
       this.setState(() => ({ errors: {} }));
+      const parsedAmount = parseFloat(amount, 10) * 100;
       onSubmit({
         category,
         description,
-        amount: parseFloat(amount, 10) * 100,
+        amount: parsedAmount,
         createdAt
       });
     }

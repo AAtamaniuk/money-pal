@@ -4,112 +4,70 @@ const moneyData = [
     category: "income",
     description: "Salary",
     createdAt: 1504053007650,
-    amount: 8000
+    amount: 800000
   },
   {
     id: "2",
     category: "entertainment",
     description: "Go to the movie",
     createdAt: 1524103007650,
-    amount: -200
+    amount: 20000
   },
   {
     id: "3",
     category: "food",
     description: "Go to the restaurant",
     createdAt: 1524157007650,
-    amount: -300
+    amount: 30000
   },
   {
     id: "4",
     category: "shopping",
     description: "Buy pants",
     createdAt: 1524123007650,
-    amount: -40
+    amount: 4000
   },
   {
     id: "5",
     category: "others",
     description: "Pay online",
     createdAt: 1524153007650,
-    amount: -100
+    amount: 10000
   },
   {
     id: "6",
     category: "entertainment",
     description: "Buy tickets",
     createdAt: 1524153007650,
-    amount: -200
+    amount: 20000
   },
   {
     id: "7",
     category: "others",
     description: "Buy gifts",
     createdAt: 1524153007650,
-    amount: -400
+    amount: 40000
   },
   {
     id: "8",
     category: "food",
     description: "Buy hotdog",
     createdAt: 1524153003650,
-    amount: -400
+    amount: 40000
   },
   {
     id: "9",
     category: "shopping",
     description: "Buy table",
     createdAt: 1524623107650,
-    amount: -1500
+    amount: 150000
   },
   {
     id: "10",
     category: "others",
     description: "Buy gifts",
     createdAt: 1524153007650,
-    amount: -400
-  },
-  {
-    id: "11",
-    category: "others",
-    description: "Buy gifts",
-    createdAt: 1524153007650,
-    amount: -400
-  },
-  {
-    id: "12",
-    category: "income",
-    description: "Birthday gifts",
-    createdAt: 1524193007650,
-    amount: 1500
-  },
-  {
-    id: "13",
-    category: "others",
-    description: "Buy gifts",
-    createdAt: 1524153007650,
-    amount: -400
-  },
-  {
-    id: "14",
-    category: "others",
-    description: "Buy gifts",
-    createdAt: 1524153007650,
-    amount: -400
-  },
-  {
-    id: "15",
-    category: "others",
-    description: "Buy gifts",
-    createdAt: 1524153007650,
-    amount: -400
-  },
-  {
-    id: "16",
-    category: "shopping",
-    description: "Buy bag",
-    createdAt: 1524153007650,
-    amount: -360
+    amount: 40000
   }
 ];
 

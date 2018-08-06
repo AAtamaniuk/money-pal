@@ -7,7 +7,7 @@ const addMoneyRecord = ({ category, description, amount, createdAt } = {}) => ({
     id: shortid.generate(),
     category,
     description,
-    amount: category === "income" ? Number(amount) : -Number(amount),
+    amount,
     createdAt
   }
 });

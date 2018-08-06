@@ -49,6 +49,7 @@ const styles = {
 
 const propTypes = {
   classes: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+  id: PropTypes.string.isRequired,
   category: PropTypes.oneOf(categories).isRequired,
   description: PropTypes.string.isRequired,
   amount: PropTypes.number.isRequired,
@@ -71,9 +72,9 @@ function MoneyItem({ classes, id, category, description, amount, createdAt }) {
       </Avatar>
       <ListItemText primary={description} secondary={createdAt} />
       {category === "income" ? (
-        <span className={classes.incomeNumber}>+{amount}</span>
+        <span className={classes.incomeNumber}>+{amount / 100}</span>
       ) : (
-        <span className={classes.costNumber}>{amount}</span>
+        <span className={classes.costNumber}>-{amount / 100}</span>
       )}
     </ListItem>
   );
