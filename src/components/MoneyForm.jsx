@@ -10,35 +10,68 @@ import categories from "../config/categories";
 
 class MoneyForm extends Component {
   state = {
-    category: "",
+    category: "income",
     description: "",
     amount: "",
-    createdAt: ""
+    createdAt: "",
+    errors: {}
   };
 
   handleChange = e => {
     const { name, value } = e.target;
-    this.setState({ [name]: value });
+    if (name === "amount") {
+      this.normalizeAmount(value);
+    } else {
+      this.setState(() => ({ [name]: value }));
+    }
+  };
+
+  normalizeAmount = value => {
+    const amountRegExp = /^\d+(\.\d{0,2})?$/;
+    if (!value || value.match(amountRegExp)) {
+      this.setState(() => ({ amount: value }));
+    }
   };
 
   handleSubmit = e => {
     e.preventDefault();
-    const { description, amount, createdAt, note } = this.state;
-    console.log(`Submit!`);
+    const { onSubmit } = this.props;
+
+    const { category, description, amount, createdAt } = this.state;
+    const errors = this.validate({ category, description, amount, createdAt });
+    if (errors) {
+      this.setState(() => ({ errors }));
+    } else {
+      onSubmit({
+        category,
+        description,
+        amount: parseFloat(amount, 10) * 100,
+        createdAt
+      });
+    }
+  };
+
+  validate = data => {
+    const errors = {};
+    if (!data.description.length) errors.description = "This field is required";
+    if (!data.amount.length) errors.amount = "This field is required";
+    if (!data.createdAt.length) errors.createdAt = "This field is required";
+    return errors;
   };
 
   render() {
-    const { category, description, amount, createdAt } = this.state;
+    const { category, description, amount, createdAt, errors } = this.state;
     return (
       <form onSubmit={this.handleSubmit}>
         <div>
           <TextField
             id="category"
             select
-            label="Category*"
+            label="Category"
             value={category}
             name="category"
             onChange={this.handleChange}
+            margin="normal"
           >
             {categories.map(i => (
               <MenuItem key={i} value={i}>
@@ -55,6 +88,9 @@ class MoneyForm extends Component {
             value={description}
             name="description"
             onChange={this.handleChange}
+            error={errors.description}
+            helperText={errors.description}
+            margin="normal"
           />
         </div>
 
@@ -65,6 +101,9 @@ class MoneyForm extends Component {
             value={amount}
             name="amount"
             onChange={this.handleChange}
+            error={errors.amount}
+            helperText={errors.amount}
+            margin="normal"
           />
         </div>
 
@@ -75,6 +114,9 @@ class MoneyForm extends Component {
             value={createdAt}
             name="createdAt"
             onChange={this.handleChange}
+            error={errors.createdAt}
+            helperText={errors.createdAt}
+            margin="normal"
           />
         </div>
         <Button color="primary" type="submit">
@@ -88,6 +130,8 @@ class MoneyForm extends Component {
   }
 }
 
-MoneyForm.propTypes = {};
+MoneyForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired
+};
 
 export default MoneyForm;

@@ -1,7 +1,7 @@
 import shortid from "shortid";
 import * as types from "../constants/actionTypes";
 
-const addMoneyRecord = (category, description, amount, createdAt) => ({
+const addMoneyRecord = ({ category, description, amount, createdAt } = {}) => ({
   type: types.ADD_MONEY_RECORD,
   moneyRecord: {
     id: shortid.generate(),

@@ -1,14 +1,34 @@
-import React from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { addMoneyRecord } from "../actions/moneyRecords";
 import MoneyForm from "./MoneyForm";
 
-const AddMoneyPage = props => (
-  <div>
-    <h1>Add money record</h1>
-    <MoneyForm />
-  </div>
-);
+class AddMoneyPage extends Component {
+  onSubmit = moneyRecord => {
+    const { addMoney, history } = this.props;
+    addMoney(moneyRecord);
+    history.push("/");
+  };
 
-AddMoneyPage.propTypes = {};
+  render() {
+    return (
+      <div>
+        <h1>Add money record</h1>
+        <MoneyForm onSubmit={this.onSubmit} />
+      </div>
+    );
+  }
+}
 
-export default AddMoneyPage;
+AddMoneyPage.propTypes = {
+  addMoney: PropTypes.func.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired
+  }).isRequired
+};
+
+export default connect(
+  null,
+  { addMoney: addMoneyRecord }
+)(AddMoneyPage);
