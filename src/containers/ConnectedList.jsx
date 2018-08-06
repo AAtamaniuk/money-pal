@@ -2,13 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 // Configs
-import moneyRecordProps from "../../config/moneyRecordProps";
+import moneyRecordProps from "../config/moneyRecordProps";
 // Actions
-import { addMoneyRecord } from "../../actions/moneyRecords";
+import { addMoneyRecord } from "../actions/moneyRecords";
 // Selectors
-import { getTotalMoney, getMoney } from "../../selectors";
+import { getTotalMoney, getMoney } from "../selectors/index";
 // Components
-import ListTab from "../../components/ListTab";
+import ListTab from "../components/ListTab";
 
 const propTypes = {
   money: PropTypes.arrayOf(PropTypes.shape(moneyRecordProps).isRequired)

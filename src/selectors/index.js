@@ -23,9 +23,14 @@ const getIcomeSum = array =>
 const getCostsSum = array =>
   getTotal(R.filter(i => i.category !== "income", array));
 
+const findById = (array, id) => array.find(i => i.id === id);
+
 // Selectors
 
 export const getMoney = state => state.money;
+
+export const findMoneyRecordById = (state, id) =>
+  state.money.find(i => i.id === id);
 
 export const getTotalMoney = createSelector(getMoney, money => getTotal(money));
 

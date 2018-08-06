@@ -7,15 +7,20 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 // Configs
 import categories from "../config/categories";
+import moneyRecordProps from "../config/moneyRecordProps";
 
 class MoneyForm extends Component {
-  state = {
-    category: "income",
-    description: "",
-    amount: "",
-    createdAt: "",
-    errors: {}
-  };
+  constructor(props) {
+    super(props);
+    const { moneyRecord } = props;
+    this.state = {
+      category: moneyRecord ? moneyRecord.category : "income",
+      description: moneyRecord ? moneyRecord.description : "",
+      amount: moneyRecord ? moneyRecord.amount : "",
+      createdAt: moneyRecord ? moneyRecord.createdAt : "",
+      errors: {}
+    };
+  }
 
   handleChange = e => {
     const { name, value } = e.target;
@@ -132,7 +137,18 @@ class MoneyForm extends Component {
 }
 
 MoneyForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired
+  onSubmit: PropTypes.func.isRequired,
+  moneyRecord: PropTypes.shape(moneyRecordProps)
+};
+
+MoneyForm.defaultProps = {
+  moneyRecord: {
+    id: "",
+    category: "income",
+    description: "",
+    amount: "",
+    createdAt: ""
+  }
 };
 
 export default MoneyForm;

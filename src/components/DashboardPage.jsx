@@ -9,8 +9,8 @@ import Tab from "@material-ui/core/Tab";
 import ListIcon from "@material-ui/icons/List";
 import PieChartIcon from "@material-ui/icons/PieChart";
 // Components
-import ConnectedList from "../containers/ConnectedList/ConnectedList";
-import ConnectedCharts from "../containers/ConnectedCharts/ConnectedCharts";
+import ConnectedList from "../containers/ConnectedList";
+import ConnectedCharts from "../containers/ConnectedCharts";
 
 const styles = theme => ({
   tabs: {

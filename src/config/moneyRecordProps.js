@@ -5,7 +5,7 @@ const moneyRecordProps = {
   id: PropTypes.string.isRequired,
   category: PropTypes.oneOf(categories).isRequired,
   description: PropTypes.string.isRequired,
-  createdAt: PropTypes.number.isRequired,
+  createdAt: PropTypes.string.isRequired,
   amount: PropTypes.number.isRequired
 };
 
