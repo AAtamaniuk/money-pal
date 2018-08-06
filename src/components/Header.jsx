@@ -14,7 +14,7 @@ const styles = {
 
 const propTypes = {
   classes: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
-  title: PropTypes.number.isRequired
+  title: PropTypes.string.isRequired
 };
 
 function Header({ classes, title }) {

@@ -1,13 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
-import moment from "moment";
 // Material UI
 import { withStyles } from "@material-ui/core/styles";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItem from "@material-ui/core/ListItem";
 import Avatar from "@material-ui/core/Avatar";
 // Icons
-import ArrowDownwarf from "@material-ui/icons/ArrowDownward";
+import ArrowDownward from "@material-ui/icons/ArrowDownward";
 import LocalActivity from "@material-ui/icons/LocalActivity";
 import LocalDining from "@material-ui/icons/LocalDining";
 import LocalMall from "@material-ui/icons/LocalMall";
@@ -52,7 +51,7 @@ const propTypes = {
   category: PropTypes.oneOf(categories).isRequired,
   description: PropTypes.string.isRequired,
   amount: PropTypes.number.isRequired,
-  createdAt: PropTypes.number.isRequired
+  createdAt: PropTypes.string.isRequired
 };
 
 function MoneyItem({ classes, category, description, amount, createdAt }) {
@@ -61,7 +60,7 @@ function MoneyItem({ classes, category, description, amount, createdAt }) {
       <Avatar className={classes[category]}>
         {
           {
-            income: <ArrowDownwarf />,
+            income: <ArrowDownward />,
             entertainment: <LocalActivity />,
             food: <LocalDining />,
             shopping: <LocalMall />,

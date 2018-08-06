@@ -7,7 +7,7 @@ import Button from "@material-ui/core/Button";
 // Icons
 import AddIcon from "@material-ui/icons/Add";
 // Configs
-import categories from "../config/categories";
+import moneyRecordProps from "../config/moneyRecordProps";
 // Components
 import MoneyList from "./MoneyList";
 import Total from "./Total";
@@ -32,15 +32,8 @@ const styles = theme => ({
 
 const propTypes = {
   classes: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
-  money: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      category: PropTypes.oneOf(categories).isRequired,
-      name: PropTypes.string.isRequired,
-      date: PropTypes.number.isRequired,
-      value: PropTypes.number.isRequired
-    }).isRequired
-  ).isRequired,
+  money: PropTypes.arrayOf(PropTypes.shape(moneyRecordProps).isRequired)
+    .isRequired,
   total: PropTypes.number.isRequired
 };
 

@@ -1,8 +1,6 @@
 import React from "react";
-// Material UI
-import Paper from "@material-ui/core/Paper";
 
-const NotFoundPage = props => (
+const NotFoundPage = () => (
   <div>
     <h1>404</h1>
     <p>Page not found</p>

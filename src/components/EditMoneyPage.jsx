@@ -1,7 +1,6 @@
 import React from "react";
-import PropTypes from "prop-types";
 
-const EditMoneyPage = props => (
+const EditMoneyPage = () => (
   <div>
     <h1>Edit money record</h1>
   </div>

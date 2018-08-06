@@ -39,9 +39,10 @@ class MoneyForm extends Component {
 
     const { category, description, amount, createdAt } = this.state;
     const errors = this.validate({ category, description, amount, createdAt });
-    if (errors) {
+    if (errors.keys > 0) {
       this.setState(() => ({ errors }));
     } else {
+      this.setState(() => ({ errors: {} }));
       onSubmit({
         category,
         description,
@@ -65,8 +66,8 @@ class MoneyForm extends Component {
       <form onSubmit={this.handleSubmit}>
         <div>
           <TextField
-            id="category"
             select
+            id="category"
             label="Category"
             value={category}
             name="category"
@@ -88,7 +89,7 @@ class MoneyForm extends Component {
             value={description}
             name="description"
             onChange={this.handleChange}
-            error={errors.description}
+            error={!!errors.description}
             helperText={errors.description}
             margin="normal"
           />
@@ -101,7 +102,7 @@ class MoneyForm extends Component {
             value={amount}
             name="amount"
             onChange={this.handleChange}
-            error={errors.amount}
+            error={!!errors.amount}
             helperText={errors.amount}
             margin="normal"
           />
@@ -114,7 +115,7 @@ class MoneyForm extends Component {
             value={createdAt}
             name="createdAt"
             onChange={this.handleChange}
-            error={errors.createdAt}
+            error={!!errors.createdAt}
             helperText={errors.createdAt}
             margin="normal"
           />

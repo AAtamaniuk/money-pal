@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 // Configs
-import categories from "../../config/categories";
+import moneyRecordProps from "../../config/moneyRecordProps";
 // Actions
 import { addMoneyRecord } from "../../actions/moneyRecords";
 // Selectors
@@ -11,15 +11,8 @@ import { getTotalMoney, getMoney } from "../../selectors";
 import ListTab from "../../components/ListTab";
 
 const propTypes = {
-  money: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      category: PropTypes.oneOf(categories).isRequired,
-      name: PropTypes.string.isRequired,
-      date: PropTypes.number.isRequired,
-      value: PropTypes.number.isRequired
-    }).isRequired
-  ).isRequired,
+  money: PropTypes.arrayOf(PropTypes.shape(moneyRecordProps).isRequired)
+    .isRequired,
   total: PropTypes.number.isRequired,
   addMoneyItem: PropTypes.func.isRequired
 };

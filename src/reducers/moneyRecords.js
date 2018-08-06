@@ -3,7 +3,7 @@ import money from "../testData/money";
 
 const initialState = money;
 
-export const moneyRecords = (state = initialState, action) => {
+const moneyRecords = (state = initialState, action) => {
   switch (action.type) {
     case types.ADD_MONEY_RECORD:
       return [...state, action.moneyRecord];

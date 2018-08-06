@@ -5,7 +5,7 @@ import * as R from "ramda";
 import List from "@material-ui/core/List";
 import { withStyles } from "@material-ui/core/styles";
 // Configs
-import categories from "../config/categories";
+import moneyRecordProps from "../config/moneyRecordProps";
 // Components
 import MoneyItem from "./MoneyItem";
 
@@ -19,32 +19,17 @@ const styles = () => ({
 
 const propTypes = {
   classes: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
-  money: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      category: PropTypes.oneOf(categories).isRequired,
-      description: PropTypes.string.isRequired,
-      createdAt: PropTypes.number.isRequired,
-      amount: PropTypes.number.isRequired
-    }).isRequired
-  ).isRequired
+  money: PropTypes.arrayOf(moneyRecordProps).isRequired
 };
 
 function MoneyList({ classes, money }) {
   const sortByProp = R.sortBy(R.prop("date"));
-  const sortesMoney = sortByProp(money);
+  const sortedMoney = sortByProp(money);
   return (
     <div className={classes.root}>
-      {/* <MoneyControls /> */}
       <List>
-        {sortesMoney.map(i => (
-          <MoneyItem
-            key={i.id}
-            category={i.category}
-            description={i.description}
-            createdAt={i.createdAt}
-            amount={i.amount}
-          />
+        {sortedMoney.map(moneyRecord => (
+          <MoneyItem key={moneyRecord.id} {...moneyRecord} />
         ))}
       </List>
     </div>
