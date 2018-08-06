@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 // Material UI
 import { withStyles } from "@material-ui/core/styles";
 import ListItemText from "@material-ui/core/ListItemText";
@@ -54,9 +55,9 @@ const propTypes = {
   createdAt: PropTypes.string.isRequired
 };
 
-function MoneyItem({ classes, category, description, amount, createdAt }) {
+function MoneyItem({ classes, id, category, description, amount, createdAt }) {
   return (
-    <ListItem>
+    <ListItem button component={Link} to={`/edit/${id}`}>
       <Avatar className={classes[category]}>
         {
           {
