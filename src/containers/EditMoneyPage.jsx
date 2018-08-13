@@ -48,9 +48,7 @@ class EditMoneyPage extends Component {
     return (
       <Paper className={classes.container}>
         <div className={classes.header}>
-          <Typography variant="headline">
-            Edit money record
-          </Typography>
+          <Typography variant="headline">Edit money record</Typography>
           <IconButton aria-label="Delete" onClick={this.handleRemove}>
             <DeleteIcon />
           </IconButton>
@@ -80,7 +78,11 @@ EditMoneyPage.propTypes = {
     push: PropTypes.func.isRequired
   }).isRequired,
   editMoney: PropTypes.func.isRequired,
-  removeMoney: PropTypes.func.isRequired
+  removeMoney: PropTypes.func.isRequired,
+  classes: PropTypes.shape({
+    container: PropTypes.object.isRequired,
+    header: PropTypes.object.isRequired
+  }).isRequired
 };
 
 export default compose(

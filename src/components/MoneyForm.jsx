@@ -177,17 +177,15 @@ class MoneyForm extends Component {
 
 MoneyForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
-  moneyRecord: PropTypes.shape(moneyRecordProps)
+  // Props defined in constructor
+  // eslint-disable-next-line
+  moneyRecord: PropTypes.shape(moneyRecordProps),
+  classes: PropTypes.shape({
+    formWrapper: PropTypes.object.isRequired,
+    buttonsWrapper: PropTypes.object.isRequired,
+    dateInput: PropTypes.object.isRequired,
+    buttonText: PropTypes.object.isRequired
+  }).isRequired
 };
-
-/* MoneyForm.defaultProps = {
-  moneyRecord: {
-    id: null,
-    category: "income",
-    description: "",
-    amount: "",
-    createdAt: moment()
-  }
-}; */
 
 export default withStyles(styles)(MoneyForm);

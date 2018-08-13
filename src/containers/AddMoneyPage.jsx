@@ -51,7 +51,7 @@ AddMoneyPage.propTypes = {
   }).isRequired,
   classes: PropTypes.shape({
     container: PropTypes.object.isRequired,
-    headline: PropTypes.object.isRequired,
+    headline: PropTypes.object.isRequired
   }).isRequired
 };
 
