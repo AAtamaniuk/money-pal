@@ -31,7 +31,7 @@ function Total({ classes, total }) {
   return (
     <div className={classes.root}>
       <Typography variant="headline" className={classes.total}>
-        Total: {total}
+        Total: {total.toFixed(2)}
       </Typography>
     </div>
   );

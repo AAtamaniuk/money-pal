@@ -84,9 +84,11 @@ function MoneyItem({ classes, id, category, description, amount, createdAt }) {
         secondary={moment(createdAt).format("ddd, MMMM Do YYYY")}
       />
       {category === "income" ? (
-        <span className={classes.incomeNumber}>+{amount / 100}</span>
+        <span className={classes.incomeNumber}>
+          +{(amount / 100).toFixed(2)}
+        </span>
       ) : (
-        <span className={classes.costNumber}>-{amount / 100}</span>
+        <span className={classes.costNumber}>-{(amount / 100).toFixed(2)}</span>
       )}
     </ListItem>
   );
