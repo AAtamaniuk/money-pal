@@ -18,8 +18,11 @@ const styles = () => ({
 });
 
 const propTypes = {
-  classes: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
-  money: PropTypes.arrayOf(moneyRecordProps).isRequired
+  classes: PropTypes.shape({
+    root: PropTypes.string.isRequired
+  }).isRequired,
+  money: PropTypes.arrayOf(PropTypes.shape(moneyRecordProps).isRequired)
+    .isRequired
 };
 
 function MoneyList({ classes, money }) {

@@ -49,7 +49,15 @@ const styles = {
 };
 
 const propTypes = {
-  classes: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+  classes: PropTypes.shape({
+    incomeNumber: PropTypes.string.isRequired,
+    costNumber: PropTypes.string.isRequired,
+    income: PropTypes.string.isRequired,
+    entertainment: PropTypes.string.isRequired,
+    food: PropTypes.string.isRequired,
+    shopping: PropTypes.string.isRequired,
+    others: PropTypes.string.isRequired
+  }).isRequired,
   id: PropTypes.string.isRequired,
   category: PropTypes.oneOf(categories).isRequired,
   description: PropTypes.string.isRequired,

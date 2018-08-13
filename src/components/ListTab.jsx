@@ -32,7 +32,11 @@ const styles = theme => ({
 });
 
 const propTypes = {
-  classes: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+  classes: PropTypes.shape({
+    root: PropTypes.string.isRequired,
+    totalContainer: PropTypes.string.isRequired,
+    button: PropTypes.string.isRequired
+  }).isRequired,
   money: PropTypes.arrayOf(PropTypes.shape(moneyRecordProps).isRequired)
     .isRequired,
   total: PropTypes.number.isRequired

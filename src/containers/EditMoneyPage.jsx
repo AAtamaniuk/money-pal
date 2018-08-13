@@ -71,17 +71,15 @@ const mapStateToProps = (state, props) => {
 };
 
 EditMoneyPage.propTypes = {
-  selectedMoneyRecord: PropTypes.shape({
-    moneyRecordProps
-  }).isRequired,
+  selectedMoneyRecord: PropTypes.shape(moneyRecordProps).isRequired,
   history: PropTypes.shape({
     push: PropTypes.func.isRequired
   }).isRequired,
   editMoney: PropTypes.func.isRequired,
   removeMoney: PropTypes.func.isRequired,
   classes: PropTypes.shape({
-    container: PropTypes.object.isRequired,
-    header: PropTypes.object.isRequired
+    container: PropTypes.string.isRequired,
+    header: PropTypes.string.isRequired
   }).isRequired
 };
 

@@ -13,7 +13,7 @@ const styles = {
 };
 
 const propTypes = {
-  classes: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+  classes: PropTypes.shape({ header: PropTypes.string.isRequired }).isRequired,
   title: PropTypes.string.isRequired
 };
 
