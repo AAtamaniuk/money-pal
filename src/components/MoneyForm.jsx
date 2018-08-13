@@ -9,7 +9,6 @@ import MenuItem from "@material-ui/core/MenuItem";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import Divider from "@material-ui/core/Divider";
-
 // Configs
 import categories from "../config/categories";
 import moneyRecordProps from "../config/moneyRecordProps";
@@ -181,10 +180,10 @@ MoneyForm.propTypes = {
   // eslint-disable-next-line
   moneyRecord: PropTypes.shape(moneyRecordProps),
   classes: PropTypes.shape({
-    formWrapper: PropTypes.object.isRequired,
-    buttonsWrapper: PropTypes.object.isRequired,
-    dateInput: PropTypes.object.isRequired,
-    buttonText: PropTypes.object.isRequired
+    formWrapper: PropTypes.string.isRequired,
+    buttonsWrapper: PropTypes.string.isRequired,
+    dateInput: PropTypes.string.isRequired,
+    buttonText: PropTypes.string.isRequired
   }).isRequired
 };
 

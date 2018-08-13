@@ -11,6 +11,7 @@ import moneyRecordProps from "../config/moneyRecordProps";
 // Components
 import MoneyList from "./MoneyList";
 import Total from "./Total";
+import NoMoney from "./NoMoney";
 
 const styles = theme => ({
   root: {
@@ -41,7 +42,7 @@ function ListTab(props) {
   const { classes, money, total } = props;
   return (
     <div className={classes.root}>
-      <MoneyList money={money} />
+      {money.length === 0 ? <NoMoney /> : <MoneyList money={money} />}
       <div className={classes.totalContainer}>
         <Total total={total} />
       </div>

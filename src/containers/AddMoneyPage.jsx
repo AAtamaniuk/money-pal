@@ -50,8 +50,8 @@ AddMoneyPage.propTypes = {
     push: PropTypes.func.isRequired
   }).isRequired,
   classes: PropTypes.shape({
-    container: PropTypes.object.isRequired,
-    headline: PropTypes.object.isRequired
+    container: PropTypes.string.isRequired,
+    headline: PropTypes.string.isRequired
   }).isRequired
 };
 

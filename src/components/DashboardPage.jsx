@@ -30,8 +30,8 @@ const styles = theme => ({
 
 const propTypes = {
   classes: PropTypes.shape({
-    tabs: PropTypes.object.isRequired,
-    container: PropTypes.object.isRequired
+    tabs: PropTypes.string.isRequired,
+    container: PropTypes.string.isRequired
   }).isRequired
 };
 

@@ -54,7 +54,7 @@ const propTypes = {
   category: PropTypes.oneOf(categories).isRequired,
   description: PropTypes.string.isRequired,
   amount: PropTypes.number.isRequired,
-  createdAt: PropTypes.string.isRequired
+  createdAt: PropTypes.instanceOf(moment).isRequired
 };
 
 function MoneyItem({ classes, id, category, description, amount, createdAt }) {
