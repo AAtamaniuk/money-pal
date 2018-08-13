@@ -29,7 +29,10 @@ const styles = theme => ({
 });
 
 const propTypes = {
-  classes: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
+  classes: PropTypes.shape({
+    tabs: PropTypes.object.isRequired,
+    container: PropTypes.object.isRequired
+  }).isRequired
 };
 
 class DashboardPage extends Component {

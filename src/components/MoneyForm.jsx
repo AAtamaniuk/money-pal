@@ -1,16 +1,34 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { withStyles } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import DatePicker from "material-ui-pickers/DatePicker";
 import moment from "moment";
-
 // Material UI
 import MenuItem from "@material-ui/core/MenuItem";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import Divider from "@material-ui/core/Divider";
+
 // Configs
 import categories from "../config/categories";
 import moneyRecordProps from "../config/moneyRecordProps";
+
+const styles = () => ({
+  formWrapper: {
+    padding: 16
+  },
+  buttonsWrapper: {
+    padding: 16
+  },
+  dateInput: {
+    marginTop: 16,
+    marginBottom: 32
+  },
+  buttonText: {
+    color: "white"
+  }
+});
 
 class MoneyForm extends Component {
   constructor(props) {
@@ -73,21 +91,20 @@ class MoneyForm extends Component {
   };
 
   render() {
+    const { classes } = this.props;
     const { category, description, amount, createdAt, errors } = this.state;
     return (
       <form onSubmit={this.handleSubmit}>
-        <div>
+        <div className={classes.formWrapper}>
           <TextField
             select
-            SelectProps={{
-              autoWidth: true
-            }}
             id="category"
             label="Category"
             value={category}
             name="category"
             onChange={this.handleChange}
             margin="normal"
+            fullWidth
           >
             {categories.map(i => (
               <MenuItem key={i} value={i}>
@@ -95,9 +112,7 @@ class MoneyForm extends Component {
               </MenuItem>
             ))}
           </TextField>
-        </div>
 
-        <div>
           <TextField
             id="description"
             label="Description*"
@@ -107,10 +122,13 @@ class MoneyForm extends Component {
             error={!!errors.description}
             helperText={errors.description}
             margin="normal"
+            placeholder="Description"
+            InputLabelProps={{
+              shrink: true
+            }}
+            fullWidth
           />
-        </div>
 
-        <div>
           <TextField
             id="amount"
             label="Amount*"
@@ -120,10 +138,13 @@ class MoneyForm extends Component {
             error={!!errors.amount}
             helperText={errors.amount}
             margin="normal"
+            placeholder="350.98"
+            InputLabelProps={{
+              shrink: true
+            }}
+            fullWidth
           />
-        </div>
 
-        <div>
           <DatePicker
             value={createdAt}
             onChange={this.handleDateChange}
@@ -131,15 +152,24 @@ class MoneyForm extends Component {
             autoOk
             disableFuture
             showTodayButton
+            className={classes.dateInput}
+            fullWidth
           />
         </div>
-
-        <Button color="primary" type="submit">
-          Add
-        </Button>
-        <Button component={Link} to="/">
-          Cancel
-        </Button>
+        <Divider />
+        <div className={classes.buttonsWrapper}>
+          <Button
+            variant="contained"
+            color="primary"
+            type="submit"
+            className={classes.buttonText}
+          >
+            Add
+          </Button>
+          <Button component={Link} color="primary" to="/">
+            Cancel
+          </Button>
+        </div>
       </form>
     );
   }
@@ -152,7 +182,7 @@ MoneyForm.propTypes = {
 
 /* MoneyForm.defaultProps = {
   moneyRecord: {
-    id: "",
+    id: null,
     category: "income",
     description: "",
     amount: "",
@@ -160,4 +190,4 @@ MoneyForm.propTypes = {
   }
 }; */
 
-export default MoneyForm;
+export default withStyles(styles)(MoneyForm);
