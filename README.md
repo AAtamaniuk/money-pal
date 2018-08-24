@@ -1,4 +1,4 @@
-#Money Pal
+# Money Pal
 
 Simple app to manage you money. 
 
