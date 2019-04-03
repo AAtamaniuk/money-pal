@@ -2,9 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 // Selectors
-import { getDataSetByCosts, getDataSetByType } from "../../selectors";
+import { getDataSetByCosts, getDataSetByType } from "../selectors/index";
 // Components
-import ChartTab from "../../components/ChartTab/ChartTab";
+import ChartTab from "../components/ChartTab";
 
 const propTypes = {
   dataSetByCost: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,

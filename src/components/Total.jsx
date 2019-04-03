@@ -20,7 +20,10 @@ const styles = {
 };
 
 const propTypes = {
-  classes: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+  classes: PropTypes.shape({
+    root: PropTypes.string.isRequired,
+    total: PropTypes.string.isRequired
+  }).isRequired,
   total: PropTypes.number.isRequired
 };
 
@@ -28,7 +31,7 @@ function Total({ classes, total }) {
   return (
     <div className={classes.root}>
       <Typography variant="headline" className={classes.total}>
-        Total: {total}
+        Total: {total.toFixed(2)}
       </Typography>
     </div>
   );

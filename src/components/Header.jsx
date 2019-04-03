@@ -13,17 +13,16 @@ const styles = {
 };
 
 const propTypes = {
-  classes: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
-  activeTab: PropTypes.number.isRequired
+  classes: PropTypes.shape({ header: PropTypes.string.isRequired }).isRequired,
+  title: PropTypes.string.isRequired
 };
 
-function Header({ classes, activeTab }) {
+function Header({ classes, title }) {
   return (
     <AppBar position="static" className={classes.header}>
       <Toolbar>
         <Typography variant="title" color="inherit">
-          {activeTab === 0 && "List"}
-          {activeTab === 1 && "Chart"}
+          {title}
         </Typography>
       </Toolbar>
     </AppBar>

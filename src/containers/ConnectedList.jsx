@@ -2,24 +2,17 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 // Configs
-import categories from "../../config/categories";
+import moneyRecordProps from "../config/moneyRecordProps";
 // Actions
-import addMoney from "../../actions";
+import { addMoneyRecord } from "../actions/moneyRecords";
 // Selectors
-import { getTotalMoney, getMoney } from "../../selectors";
+import { getTotalMoney, getMoney } from "../selectors/index";
 // Components
-import ListTab from "../../components/ListTab/ListTab";
+import ListTab from "../components/ListTab";
 
 const propTypes = {
-  money: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      category: PropTypes.oneOf(categories).isRequired,
-      name: PropTypes.string.isRequired,
-      createdAt: PropTypes.number.isRequired,
-      amount: PropTypes.number.isRequired
-    }).isRequired
-  ).isRequired,
+  money: PropTypes.arrayOf(PropTypes.shape(moneyRecordProps).isRequired)
+    .isRequired,
   total: PropTypes.number.isRequired,
   addMoneyItem: PropTypes.func.isRequired
 };
@@ -37,5 +30,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { addMoneyItem: addMoney }
+  { addMoneyItem: addMoneyRecord }
 )(ConnectedList);

@@ -1,14 +1,14 @@
 {
-    "env": {
-        "browser": true,
-        "jest": true
-    },
     "extends": [
         "airbnb",
         "plugin:prettier/recommended",
         "plugin:react/recommended",
         "prettier/react"
     ],
+    "env": {
+        "browser": true,
+        "jest": true
+    },
     "parser": "babel-eslint",
     "rules": {
         "react/no-did-mount-set-state": false,

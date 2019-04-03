@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import moment from "moment";
 // Material UI
 import { withStyles } from "@material-ui/core/styles";
@@ -7,7 +8,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import ListItem from "@material-ui/core/ListItem";
 import Avatar from "@material-ui/core/Avatar";
 // Icons
-import ArrowDownwarf from "@material-ui/icons/ArrowDownward";
+import ArrowDownward from "@material-ui/icons/ArrowDownward";
 import LocalActivity from "@material-ui/icons/LocalActivity";
 import LocalDining from "@material-ui/icons/LocalDining";
 import LocalMall from "@material-ui/icons/LocalMall";
@@ -19,7 +20,7 @@ import amber from "@material-ui/core/colors/amber";
 import blue from "@material-ui/core/colors/blue";
 import pink from "@material-ui/core/colors/pink";
 // Config
-import categories from "../../config/categories";
+import categories from "../config/categories";
 
 const styles = {
   incomeNumber: {
@@ -48,24 +49,29 @@ const styles = {
 };
 
 const propTypes = {
-  classes: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+  classes: PropTypes.shape({
+    incomeNumber: PropTypes.string.isRequired,
+    costNumber: PropTypes.string.isRequired,
+    income: PropTypes.string.isRequired,
+    entertainment: PropTypes.string.isRequired,
+    food: PropTypes.string.isRequired,
+    shopping: PropTypes.string.isRequired,
+    others: PropTypes.string.isRequired
+  }).isRequired,
+  id: PropTypes.string.isRequired,
   category: PropTypes.oneOf(categories).isRequired,
-  name: PropTypes.string.isRequired,
-  createdAt: PropTypes.number.isRequired,
-  amount: PropTypes.number.isRequired
+  description: PropTypes.string.isRequired,
+  amount: PropTypes.number.isRequired,
+  createdAt: PropTypes.instanceOf(moment).isRequired
 };
 
-function MoneyItem({ classes, category, name, createdAt, amount }) {
-  const formattedDate = moment(createdAt)
-    .utc()
-    .startOf("second")
-    .fromNow();
+function MoneyItem({ classes, id, category, description, amount, createdAt }) {
   return (
-    <ListItem>
+    <ListItem button component={Link} to={`/edit/${id}`}>
       <Avatar className={classes[category]}>
         {
           {
-            income: <ArrowDownwarf />,
+            income: <ArrowDownward />,
             entertainment: <LocalActivity />,
             food: <LocalDining />,
             shopping: <LocalMall />,
@@ -73,11 +79,16 @@ function MoneyItem({ classes, category, name, createdAt, amount }) {
           }[category]
         }
       </Avatar>
-      <ListItemText primary={name} secondary={formattedDate} />
+      <ListItemText
+        primary={description}
+        secondary={moment(createdAt).format("ddd, MMMM Do YYYY")}
+      />
       {category === "income" ? (
-        <span className={classes.incomeNumber}>+{amount}</span>
+        <span className={classes.incomeNumber}>
+          +{(amount / 100).toFixed(2)}
+        </span>
       ) : (
-        <span className={classes.costNumber}>{amount}</span>
+        <span className={classes.costNumber}>-{(amount / 100).toFixed(2)}</span>
       )}
     </ListItem>
   );
