@@ -1,9 +1,8 @@
 import React from "react";
 import { Provider } from "react-redux";
-import moment from "moment";
 import { BrowserRouter as Router } from "react-router-dom";
-import MuiPickersUtilsProvider from "material-ui-pickers/utils/MuiPickersUtilsProvider";
-import MomentUtils from "material-ui-pickers/utils/moment-utils";
+import { MuiPickersUtilsProvider } from "material-ui-pickers";
+import MomentUtils from "@date-io/moment";
 // Material UI
 import { MuiThemeProvider } from "@material-ui/core/styles";
 // Configs
@@ -18,7 +17,7 @@ function Root() {
     <Provider store={store}>
       <Router>
         <MuiThemeProvider theme={theme}>
-          <MuiPickersUtilsProvider utils={MomentUtils} moment={moment}>
+          <MuiPickersUtilsProvider utils={MomentUtils}>
             <App />
           </MuiPickersUtilsProvider>
         </MuiThemeProvider>
