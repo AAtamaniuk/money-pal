@@ -1,4 +1,4 @@
-import React from "react";
+import React, { StrictMode } from "react";
 import { Provider } from "react-redux";
 import { BrowserRouter as Router } from "react-router-dom";
 import { MuiPickersUtilsProvider } from "material-ui-pickers";
@@ -14,15 +14,17 @@ import App from "./App";
 
 function Root() {
   return (
-    <Provider store={store}>
-      <Router>
-        <MuiThemeProvider theme={theme}>
-          <MuiPickersUtilsProvider utils={MomentUtils}>
-            <App />
-          </MuiPickersUtilsProvider>
-        </MuiThemeProvider>
-      </Router>
-    </Provider>
+    <StrictMode>
+      <Provider store={store}>
+        <Router>
+          <MuiThemeProvider theme={theme}>
+            <MuiPickersUtilsProvider utils={MomentUtils}>
+              <App />
+            </MuiPickersUtilsProvider>
+          </MuiThemeProvider>
+        </Router>
+      </Provider>
+    </StrictMode>
   );
 }
 
