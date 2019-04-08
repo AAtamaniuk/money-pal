@@ -30,15 +30,24 @@ export const getMoney = state => state.money;
 export const findMoneyRecordById = (state, id) =>
   state.money.find(i => i.id === id);
 
-export const getTotalMoney = createSelector(getMoney, money => getTotal(money));
+export const getTotalMoney = createSelector(
+  getMoney,
+  money => getTotal(money)
+);
 
-export const getDataSetByCosts = createSelector(getMoney, money => {
-  const costsCategories = getCostCategoriesOnly(money);
-  return costsCategories.map(i => getSumByCategory(money, i));
-});
+export const getDataSetByCosts = createSelector(
+  getMoney,
+  money => {
+    const costsCategories = getCostCategoriesOnly(money);
+    return costsCategories.map(i => getSumByCategory(money, i));
+  }
+);
 
-export const getDataSetByType = createSelector(getMoney, money => {
-  const incomeSum = getIncomeSum(money);
-  const costsSum = Math.abs(getCostsSum(money));
-  return [incomeSum, costsSum];
-});
+export const getDataSetByType = createSelector(
+  getMoney,
+  money => {
+    const incomeSum = getIncomeSum(money);
+    const costsSum = Math.abs(getCostsSum(money));
+    return [incomeSum, costsSum];
+  }
+);
