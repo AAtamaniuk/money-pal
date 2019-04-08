@@ -1,6 +1,6 @@
-import { combineReducers } from 'redux';
-import money from './money';
+import { combineReducers } from "redux";
+import moneyRecords from "./moneyRecords";
 
 export default combineReducers({
-  money,
+  money: moneyRecords
 });

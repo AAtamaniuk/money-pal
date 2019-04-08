@@ -1,23 +1,23 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 // Material UI
-import { withStyles } from 'material-ui/styles';
-import Grid from 'material-ui/Grid';
+import { withStyles } from "@material-ui/core/styles";
+import Grid from "@material-ui/core/Grid";
 // Components
-import ChartDoughnut from '../../components/ChartDoughnut/ChartDoughnut';
-import ChartBar from '../../components/ChartBar/ChartBar';
+import ChartDoughnut from "./ChartDoughnut";
+import ChartBar from "./ChartBar";
 
 const styles = theme => ({
   root: {
-    display: 'flex',
-    padding: theme.spacing.unit * 2,
-  },
+    display: "flex",
+    padding: theme.spacing.unit * 2
+  }
 });
 
 const propTypes = {
   classes: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
   dataSetByCost: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
-  dataSetByCategory: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
+  dataSetByCategory: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired
 };
 
 function ChartTab({ classes, dataSetByCost, dataSetByCategory }) {
