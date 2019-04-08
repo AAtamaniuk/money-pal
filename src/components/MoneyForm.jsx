@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core";
 import { Link } from "react-router-dom";
-import DatePicker from "material-ui-pickers/DatePicker";
+import { DatePicker } from "material-ui-pickers";
 import moment from "moment";
 // Material UI
 import MenuItem from "@material-ui/core/MenuItem";
@@ -148,9 +148,9 @@ class MoneyForm extends Component {
             value={createdAt}
             onChange={this.handleDateChange}
             label="Date"
-            autoOk
-            disableFuture
-            showTodayButton
+            // autoOk
+            // disableFuture
+            // showTodayButton
             className={classes.dateInput}
             fullWidth
           />
